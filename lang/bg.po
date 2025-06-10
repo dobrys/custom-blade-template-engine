@@ -1,0 +1,1272 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2025-06-05 19:28+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: ../laragon/www/dailyfit24\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: account/member-login.php:34 account/member-login.php:57
+msgid "Sorry ! Your phone is not recognized !"
+msgstr "Съжаляваме! Телефонът Ви не е разпознат!"
+
+#: account/member-login.php:66 inc.php:114 inc.php:151
+msgid "Sorry ! Your subscription is expired !"
+msgstr "Съжаляваме! Вашият абонамент е изтекъл!"
+
+#: account/public/404.php:5 account/public/404.php:10
+#: account/public/new_password.php:86 account/public/new_password.php:91
+#: account/public/page.php:49 account/public/page.php:54
+#: account/public/select-workout.php:221 account/public/select-workout.php:226
+#: account/public/start-load.php:589 account/public/start-load.php:594
+#: account/public/start-personal.php:168 account/public/start-personal.php:173
+#: account/public/start-recipe.php:222 account/public/start-recipe.php:227
+#: account/public/start-workout.php:566 account/public/start-workout.php:571
+#: public/404.php:5 public/404.php:10 public/page.php:49 public/page.php:54
+msgid "404 Error Page"
+msgstr "Страница за грешка 404"
+
+#: account/public/404.php:8 account/public/checkout.php:15
+#: account/public/checkout.php:132 account/public/dashboard.php:46
+#: account/public/favorite-recipes.php:23 account/public/footer.php:41
+#: account/public/forgot.php:15 account/public/healthy-recipes.php:23
+#: account/public/j.php:148 account/public/my-activity.php:39
+#: account/public/my-workouts.php:40 account/public/navbar.php:27
+#: account/public/new_password.php:16 account/public/new_password.php:89
+#: account/public/orig.login.php:18 account/public/page.php:16
+#: account/public/page.php:52 account/public/profile.php:17
+#: account/public/register.php:14 account/public/select-workout.php:29
+#: account/public/select-workout.php:224 account/public/start-load.php:152
+#: account/public/start-load.php:592 account/public/start-personal.php:45
+#: account/public/start-personal.php:171 account/public/start-recipe.php:34
+#: account/public/start-recipe.php:225 account/public/start-workout.php:135
+#: account/public/start-workout.php:569 account/public/workout.php:23
+#: public/404.php:8 public/checkout.php:15 public/checkout.php:132
+#: public/j.php:148 public/navbar.php:26 public/navbar2.php:27
+#: public/page.php:16 public/page.php:52
+msgid "Home"
+msgstr "Начало"
+
+#: account/public/404.php:23 account/public/new_password.php:104
+#: account/public/page.php:67 account/public/select-workout.php:239
+#: account/public/start-load.php:607 account/public/start-personal.php:186
+#: account/public/start-recipe.php:240 account/public/start-workout.php:584
+#: public/404.php:23 public/page.php:67
+msgid "Oops! Page Not Found"
+msgstr "Опа! Страницата не е намерена"
+
+#: account/public/404.php:24 account/public/new_password.php:105
+#: account/public/page.php:68 account/public/select-workout.php:240
+#: account/public/start-load.php:608 account/public/start-personal.php:187
+#: account/public/start-recipe.php:241 account/public/start-workout.php:585
+#: public/404.php:24 public/page.php:68
+msgid ""
+"The page you are looking for might have been removed had its name changed or "
+"is temporarily unavailable."
+msgstr ""
+"Страницата, която търсите, може да е била премахната, името ѝ е променено "
+"или временно не е налична."
+
+#: account/public/404.php:26 account/public/page.php:69
+#: account/public/select-workout.php:242 account/public/start-load.php:610
+#: account/public/start-personal.php:189 account/public/start-recipe.php:243
+#: account/public/start-workout.php:587 public/404.php:25 public/page.php:69
+msgid "Return To Home Page"
+msgstr "Върнете се към началната страница"
+
+#: account/public/banner.php:8 public/banner.php:8
+msgid "Real Time For Fitness"
+msgstr "Време за фитнес на живо"
+
+#: account/public/banner.php:9 account/public/dashboard.php:74
+#: account/public/favorite-recipes.php:56 account/public/healthy-recipes.php:59
+#: account/public/home.php:109 account/public/home.php:121
+#: account/public/home.php:133 account/public/home.php:145
+#: account/public/home.php:157 account/public/home.php:169
+#: account/public/home.php:181 account/public/home.php:193
+#: account/public/home.php:236 account/public/home.php:248
+#: account/public/home.php:260 account/public/home.php:272
+#: account/public/home.php:284 account/public/home.php:296
+#: account/public/home.php:308 account/public/home.php:322
+#: account/public/home.php:334 account/public/home.php:346
+#: account/public/home.php:358 account/public/home.php:370
+#: account/public/home.php:382 account/public/home.php:394
+#: account/public/home.php:408 account/public/home.php:420
+#: account/public/home.php:432 account/public/home.php:444
+#: account/public/home.php:456 account/public/home.php:468
+#: account/public/home.php:480 account/public/home.php:494
+#: account/public/home.php:506 account/public/home.php:518
+#: account/public/home.php:530 account/public/home.php:542
+#: account/public/home.php:554 account/public/home.php:566
+#: account/public/home.php:580 account/public/home.php:592
+#: account/public/home.php:604 account/public/home.php:616
+#: account/public/home.php:628 account/public/home.php:640
+#: account/public/home.php:652 account/public/navigation.php:17
+#: account/public/profile.php:84 account/public/select-workout.php:65
+#: account/public/start-load.php:158 account/public/start-load.php:189
+#: account/public/start-load.php:472 account/public/start-personal.php:48
+#: account/public/start-personal.php:78 account/public/start-recipe.php:63
+#: account/public/start-workout.php:175 account/public/start-workout.php:449
+#: account/public/workout.php:56 public/banner.php:9 public/home.php:52
+#: public/home.php:64 public/home.php:76 public/home.php:88 public/home.php:100
+#: public/home.php:112 public/home.php:124 public/home.php:136
+#: public/home.php:179 public/home.php:191 public/home.php:203
+#: public/home.php:215 public/home.php:227 public/home.php:239
+#: public/home.php:251 public/home.php:265 public/home.php:277
+#: public/home.php:289 public/home.php:301 public/home.php:313
+#: public/home.php:325 public/home.php:337 public/home.php:351
+#: public/home.php:363 public/home.php:375 public/home.php:387
+#: public/home.php:399 public/home.php:411 public/home.php:423
+#: public/home.php:437 public/home.php:449 public/home.php:461
+#: public/home.php:473 public/home.php:485 public/home.php:497
+#: public/home.php:509 public/home.php:523 public/home.php:535
+#: public/home.php:547 public/home.php:559 public/home.php:571
+#: public/home.php:583 public/home.php:595
+msgid "Personal trainer"
+msgstr "Личен треньор"
+
+#: account/public/banner.php:10 public/banner.php:10
+msgid ""
+"Special personal training for everyone, over 1200+ training programs await "
+"you."
+msgstr ""
+"Специално персонално обучение за всеки, над 1200 тренировъчни програми ви "
+"очакват."
+
+#: account/public/banner.php:11 account/public/banner.php:18
+#: account/public/banner.php:25 public/banner.php:11 public/banner.php:18
+#: public/banner.php:25
+msgid "Get started now"
+msgstr "Започнете сега"
+
+#: account/public/banner.php:15 public/banner.php:15
+msgid "A brand new app"
+msgstr "Изцяло ново приложение"
+
+#: account/public/banner.php:16 public/banner.php:16
+msgid "Online training"
+msgstr "Онлайн обучение"
+
+#: account/public/banner.php:17 public/banner.php:17
+msgid "A whole new generation platform for personal training."
+msgstr "Изцяло ново поколение платформа за персонално обучение."
+
+#: account/public/banner.php:22 public/banner.php:22
+msgid "Healthy life"
+msgstr "Здравословен живот"
+
+#: account/public/banner.php:23 public/banner.php:23
+msgid "Hundreds of healthy recipes"
+msgstr "Стотици здравословни рецепти"
+
+#: account/public/banner.php:24 public/banner.php:24
+msgid "Individual recipes selected especially for you, live healthy."
+msgstr "Индивидуални рецепти, специално подбрани за вас, живейте здравословно."
+
+#: account/public/cancel-error.php:4 public/cancel-error.php:4
+msgid "Cancellation failed"
+msgstr "Отказването не бе успешно"
+
+#: account/public/cancel-error.php:5 public/cancel-error.php:5
+msgid "Subscription could not be cancelled!"
+msgstr "Абонаментът не може да бъде отменен!"
+
+#: account/public/cancel-error.php:8 public/cancel-error.php:8
+msgid "Your subscription could not be cancelled."
+msgstr "Вашият абонамент не може да бъде отменен."
+
+#: account/public/cancel-error.php:9 public/cancel-error.php:9
+msgid "Please contact support."
+msgstr "Моля, свържете се с поддръжката."
+
+#: account/public/cancel-form.php:5 account/public/cancel-form.php:18
+#: public/cancel-form.php:5 public/cancel-form.php:18
+msgid "Cancel Subscription"
+msgstr "Откажете абонамента"
+
+#: account/public/cancel-success.php:4 public/cancel-success.php:4
+msgid "Cancellation succeeded"
+msgstr "Отказването бе успешно"
+
+#: account/public/cancel-success.php:5 public/cancel-success.php:5
+msgid "Subscription cancelled sucessfully!"
+msgstr "Абонаментът бе успешно отменен!"
+
+#: account/public/checkout.php:17 account/public/checkout.php:134
+#: landing/mobixon/index.php:46 landing/mobixon/index.php:88
+#: landing/mobixon/index.php:115 public/checkout.php:17 public/checkout.php:134
+msgid "Subscribe"
+msgstr "Абонирай се"
+
+#: account/public/checkout.php:28 public/checkout.php:28
+msgid "A user with the specified email address already exists."
+msgstr "Потребител с този имейл вече съществува."
+
+#: account/public/checkout.php:35 public/checkout.php:35
+msgid "Password must be 8 or more characters."
+msgstr "Паролата трябва да е с 8 или повече символа."
+
+#: account/public/checkout.php:42 public/checkout.php:42
+msgid "The passwords do not match."
+msgstr "Паролите не съвпадат."
+
+#: account/public/checkout.php:49 account/public/forgot.php:54
+#: public/checkout.php:49
+msgid "The code from the picture is wrong."
+msgstr "Кодът от картинката е грешен."
+
+#: account/public/checkout.php:63 public/checkout.php:63
+msgid "Register"
+msgstr "Регистрация"
+
+#: account/public/checkout.php:67 public/checkout.php:67
+msgid "First Name"
+msgstr "Име"
+
+#: account/public/checkout.php:74 public/checkout.php:74
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: account/public/checkout.php:81 public/checkout.php:81
+msgid "Email Address"
+msgstr "Имейл адрес"
+
+#: account/public/checkout.php:88 public/checkout.php:88
+msgid "Phone"
+msgstr "Телефон"
+
+#: account/public/checkout.php:95 public/checkout.php:95
+msgid "Password"
+msgstr "Парола"
+
+#: account/public/checkout.php:102 public/checkout.php:102
+msgid "Repeat the password"
+msgstr "Повторете паролата"
+
+#: account/public/checkout.php:108 public/checkout.php:108
+msgid "Already have an account?"
+msgstr "Вече имате акаунт?"
+
+#: account/public/checkout.php:108 account/public/register.php:111
+#: public/checkout.php:108
+msgid "Enter from here"
+msgstr "Влезте от тук"
+
+#: account/public/checkout.php:148 public/checkout.php:148
+msgid "Cart Totals"
+msgstr "Общо в количката"
+
+#: account/public/checkout.php:150 public/checkout.php:150
+msgid "Product"
+msgstr "Продукт"
+
+#: account/public/checkout.php:150 public/checkout.php:150
+msgid "Fitness training and diets"
+msgstr "Фитнес тренировки и диети"
+
+#: account/public/checkout.php:151 account/public/home.php:111
+#: account/public/home.php:123 account/public/home.php:135
+#: account/public/home.php:147 account/public/home.php:159
+#: account/public/home.php:171 account/public/home.php:183
+#: account/public/home.php:195 public/checkout.php:151 public/home.php:54
+#: public/home.php:66 public/home.php:78 public/home.php:90 public/home.php:102
+#: public/home.php:114 public/home.php:126 public/home.php:138
+msgid "Free"
+msgstr "Безплатно"
+
+#: account/public/checkout.php:151 public/checkout.php:151
+msgid "14 days"
+msgstr "14 дни"
+
+#: account/public/checkout.php:152 public/checkout.php:152
+msgid "Total"
+msgstr "Общо"
+
+#: account/public/dashboard.php:43 account/public/dashboard.php:48
+#: account/public/favorite-recipes.php:26 account/public/footer.php:111
+#: account/public/healthy-recipes.php:26 account/public/my-workouts.php:43
+#: account/public/select-workout.php:32 account/public/start-load.php:155
+#: account/public/start-workout.php:138 account/public/workout.php:26
+msgid "My account"
+msgstr "Моят профил"
+
+#: account/public/dashboard.php:58 account/public/favorite-recipes.php:38
+#: account/public/healthy-recipes.php:41 account/public/my-activity.php:51
+#: account/public/my-workouts.php:55 account/public/select-workout.php:47
+#: account/public/start-load.php:170 account/public/start-personal.php:60
+#: account/public/start-workout.php:156 account/public/workout.php:38
+msgid "Activate account"
+msgstr "Активирай акаунта"
+
+#: account/public/dashboard.php:76 account/public/favorite-recipes.php:60
+#: account/public/my-activity.php:73 account/public/my-workouts.php:77
+#: account/public/navigation.php:23 account/public/profile.php:88
+#: account/public/select-workout.php:69 account/public/start-load.php:193
+#: account/public/start-load.php:478 account/public/start-personal.php:82
+#: account/public/start-recipe.php:67 account/public/start-workout.php:179
+#: account/public/start-workout.php:455 account/public/workout.php:60
+msgid "Custom workout"
+msgstr "Персонализирана тренировка"
+
+#: account/public/dashboard.php:78 account/public/favorite-recipes.php:64
+#: account/public/healthy-recipes.php:67 account/public/my-activity.php:77
+#: account/public/my-activity.php:102 account/public/my-workouts.php:81
+#: account/public/navigation.php:29 account/public/profile.php:92
+#: account/public/select-workout.php:73 account/public/start-load.php:197
+#: account/public/start-load.php:484 account/public/start-personal.php:86
+#: account/public/start-recipe.php:71 account/public/start-workout.php:183
+#: account/public/start-workout.php:461 account/public/workout.php:64
+msgid "My activity"
+msgstr "Моята активност"
+
+#: account/public/dashboard.php:80 account/public/favorite-recipes.php:68
+#: account/public/healthy-recipes.php:71 account/public/my-activity.php:81
+#: account/public/my-workouts.php:85 account/public/my-workouts.php:106
+#: account/public/navigation.php:35 account/public/profile.php:96
+#: account/public/select-workout.php:77 account/public/start-load.php:201
+#: account/public/start-load.php:490 account/public/start-personal.php:90
+#: account/public/start-recipe.php:75 account/public/start-workout.php:187
+#: account/public/start-workout.php:467 account/public/workout.php:68
+msgid "My workouts"
+msgstr "Моите тренировки"
+
+#: account/public/dashboard.php:82 account/public/favorite-recipes.php:72
+#: account/public/healthy-recipes.php:29 account/public/healthy-recipes.php:75
+#: account/public/my-activity.php:85 account/public/my-workouts.php:89
+#: account/public/navigation.php:41 account/public/profile.php:100
+#: account/public/select-workout.php:81 account/public/start-load.php:205
+#: account/public/start-load.php:496 account/public/start-personal.php:94
+#: account/public/start-recipe.php:79 account/public/start-workout.php:191
+#: account/public/start-workout.php:473 account/public/workout.php:72
+msgid "Healthy recipes"
+msgstr "Здравословни рецепти"
+
+#: account/public/dashboard.php:84 account/public/favorite-recipes.php:76
+#: account/public/healthy-recipes.php:79 account/public/my-activity.php:89
+#: account/public/my-workouts.php:93 account/public/navigation.php:47
+#: account/public/profile.php:104 account/public/select-workout.php:85
+#: account/public/start-load.php:209 account/public/start-load.php:502
+#: account/public/start-personal.php:98 account/public/start-recipe.php:83
+#: account/public/start-workout.php:195 account/public/start-workout.php:479
+#: account/public/workout.php:76
+msgid "Favorite recipes"
+msgstr "Любими рецепти"
+
+#: account/public/dashboard.php:86 account/public/favorite-recipes.php:80
+#: account/public/healthy-recipes.php:83 account/public/my-activity.php:93
+#: account/public/my-workouts.php:97 account/public/navigation.php:54
+#: account/public/profile.php:108 account/public/select-workout.php:89
+#: account/public/start-load.php:213 account/public/start-load.php:508
+#: account/public/start-personal.php:102 account/public/start-recipe.php:87
+#: account/public/start-workout.php:199 account/public/start-workout.php:485
+#: account/public/workout.php:80
+msgid "Profile"
+msgstr "Профил"
+
+#: account/public/dashboard.php:88 account/public/favorite-recipes.php:84
+#: account/public/healthy-recipes.php:87 account/public/my-activity.php:97
+#: account/public/my-workouts.php:101 account/public/navigation.php:61
+#: account/public/profile.php:112 account/public/select-workout.php:93
+#: account/public/start-load.php:217 account/public/start-load.php:514
+#: account/public/start-personal.php:106 account/public/start-recipe.php:91
+#: account/public/start-workout.php:203 account/public/start-workout.php:491
+#: account/public/workout.php:84
+msgid "Logout"
+msgstr "Изход"
+
+#: account/public/dashboard.php:93
+msgid "PERSONAL TRAINER"
+msgstr "ЛИЧЕН ТРЕНЬОР"
+
+#: account/public/dashboard.php:99
+msgid "You have chosen "
+msgstr "Вие избрахте "
+
+#: account/public/dashboard.php:109 account/public/home.php:222
+#: public/home.php:165
+msgid "Monday"
+msgstr "Понеделник"
+
+#: account/public/dashboard.php:110 account/public/home.php:223
+#: public/home.php:166
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: account/public/dashboard.php:111 account/public/home.php:224
+#: public/home.php:167
+msgid "Wednesday"
+msgstr "Сряда"
+
+#: account/public/dashboard.php:112 account/public/home.php:225
+#: public/home.php:168
+msgid "Thursday"
+msgstr "Четвъртък"
+
+#: account/public/dashboard.php:113 account/public/home.php:226
+#: public/home.php:169
+msgid "Friday"
+msgstr "Петък"
+
+#: account/public/dashboard.php:114 account/public/home.php:227
+#: public/home.php:170
+msgid "Saturday"
+msgstr "Събота"
+
+#: account/public/dashboard.php:115 account/public/home.php:228
+#: public/home.php:171
+msgid "Sunday"
+msgstr "Неделя"
+
+#: account/public/dashboard.php:130 account/public/dashboard.php:142
+#: account/public/dashboard.php:154 account/public/dashboard.php:166
+#: account/public/dashboard.php:178 account/public/dashboard.php:190
+#: account/public/dashboard.php:202 account/public/home.php:241
+#: account/public/home.php:253 account/public/home.php:265
+#: account/public/home.php:277 account/public/home.php:289
+#: account/public/home.php:301 account/public/home.php:313
+#: account/public/home.php:327 account/public/home.php:339
+#: account/public/home.php:351 account/public/home.php:363
+#: account/public/home.php:375 account/public/home.php:387
+#: account/public/home.php:399 account/public/home.php:413
+#: account/public/home.php:425 account/public/home.php:437
+#: account/public/home.php:449 account/public/home.php:461
+#: account/public/home.php:473 account/public/home.php:485
+#: account/public/home.php:499 account/public/home.php:511
+#: account/public/home.php:523 account/public/home.php:535
+#: account/public/home.php:547 account/public/home.php:559
+#: account/public/home.php:571 account/public/home.php:585
+#: account/public/home.php:597 account/public/home.php:609
+#: account/public/home.php:621 account/public/home.php:633
+#: account/public/home.php:645 account/public/home.php:657
+#: account/public/start-personal.php:112 public/home.php:184
+#: public/home.php:196 public/home.php:208 public/home.php:220
+#: public/home.php:232 public/home.php:244 public/home.php:256
+#: public/home.php:270 public/home.php:282 public/home.php:294
+#: public/home.php:306 public/home.php:318 public/home.php:330
+#: public/home.php:342 public/home.php:356 public/home.php:368
+#: public/home.php:380 public/home.php:392 public/home.php:404
+#: public/home.php:416 public/home.php:428 public/home.php:442
+#: public/home.php:454 public/home.php:466 public/home.php:478
+#: public/home.php:490 public/home.php:502 public/home.php:514
+#: public/home.php:528 public/home.php:540 public/home.php:552
+#: public/home.php:564 public/home.php:576 public/home.php:588
+#: public/home.php:600
+msgid "Start workout"
+msgstr "Започнете тренировка"
+
+#: account/public/favorite-recipes.php:28
+#: account/public/favorite-recipes.php:89
+msgid "My favorites recipes"
+msgstr "Моите любими рецепти"
+
+#: account/public/favorite-recipes.php:171
+msgid "You have no recipes added to your list yet."
+msgstr "Все още нямате добавени рецепти в списъка си."
+
+#: account/public/favorite-recipes.php:172
+msgid "See all healthy recipes"
+msgstr "Вижте всички здравословни рецепти"
+
+#: account/public/footer.php:58
+msgid "Report abuse"
+msgstr "Докладвай злоупотреба"
+
+#: account/public/footer.php:63
+msgid "You have successfully subscribed to our newsletter!"
+msgstr "Успешно се абонирахте за нашия бюлетин!"
+
+#: account/public/footer.php:67 public/footer.php:40
+msgid "JOIN THE COMMUNITY"
+msgstr "ПРИСЪЕДИНЕТЕ СЕ КЪМ ОБЩНОСТТА"
+
+#: account/public/footer.php:68 public/footer.php:41
+msgid "Subscribe Our Newsletter"
+msgstr "Абонирайте се за нашия бюлетин"
+
+#: account/public/footer.php:96 landing/mobixon/index.php:185
+#: public/footer.php:64
+msgid "Terms and conditions"
+msgstr "Общи условия"
+
+#: account/public/footer.php:101 public/footer.php:69
+msgid "Privacy policy"
+msgstr "Политика за поверителност"
+
+#: account/public/footer.php:106
+msgid "Refund policy"
+msgstr "Политика за възстановяване"
+
+#: account/public/footer.php:116 public/footer.php:74
+msgid "Contact us"
+msgstr "Свържете се с нас"
+
+#: account/public/footer.php:121
+msgid "Abo-Verwaltung"
+msgstr "Управление на абонаменти"
+
+#: account/public/forgot.php:12 account/public/forgot.php:17
+msgid "Forgot Password"
+msgstr "Забравена парола"
+
+#: account/public/forgot.php:28 account/public/forgot.php:40
+msgid ""
+"We have sent a special address to your email, through which you can set a "
+"new password for your account."
+msgstr ""
+"Изпратихме специален адрес на вашия имейл, чрез който можете да зададете "
+"нова парола за акаунта си."
+
+#: account/public/forgot.php:29
+msgid "If you do not receive a password reset email within 5 minutes"
+msgstr "Ако не получите имейл за нулиране на паролата в рамките на 5 минути"
+
+#: account/public/forgot.php:47
+msgid "No user with the specified email exists."
+msgstr "Няма потребител с посочения имейл."
+
+#: account/public/forgot.php:66
+msgid "Forget Password"
+msgstr "Забравена парола"
+
+#: account/public/header.php:58 public/header.php:62
+msgid "Dailyfit24.com :: Free online workouts and recipes for healthy eating"
+msgstr ""
+"Dailyfit24.com :: Безплатни онлайн тренировки и рецепти за здравословно "
+"хранене"
+
+#: account/public/healthy-recipes.php:63
+msgid "Custom workoutt"
+msgstr "Персонализирана тренировка"
+
+#: account/public/healthy-recipes.php:92 account/public/start-recipe.php:37
+msgid "All recipes"
+msgstr "Всички рецепти"
+
+#: account/public/home.php:10
+msgid "Tons Of Equipment"
+msgstr "Множество оборудване"
+
+#: account/public/home.php:72 public/home.php:15
+msgid "High level training"
+msgstr "Обучение на високо ниво"
+
+#: account/public/home.php:73 public/home.php:16
+msgid "Discover over 1200+ unique workouts"
+msgstr "Открийте над 1200 уникални тренировки"
+
+#: account/public/home.php:75 public/home.php:18
+msgid ""
+"We have created an innovative personal trainer to take care of your fitness "
+"and nutrition."
+msgstr ""
+"Създадохме иновативен личен треньор, който да се грижи за вашата фитнес "
+"форма и хранене."
+
+#: account/public/home.php:80 public/home.php:23
+msgid "Build the muscles of your dreams"
+msgstr "Изградете мускулите на мечтите си"
+
+#: account/public/home.php:81 public/home.php:24
+msgid "Lose weight effectively and quickly"
+msgstr "Отслабнете ефективно и бързо"
+
+#: account/public/home.php:82 public/home.php:25
+msgid "Create the body of your dreams"
+msgstr "Създайте тялото на мечтите си"
+
+#: account/public/home.php:83 public/home.php:26
+msgid "Hundreds of recipes for healthy living"
+msgstr "Стотици рецепти за здравословен начин на живот"
+
+#: account/public/home.php:84 public/home.php:27
+msgid "Try everything for free"
+msgstr "Изпробвайте всичко безплатно"
+
+#: account/public/home.php:99 public/home.php:42
+msgid "Selected workouts for everyone"
+msgstr "Избрани тренировки за всеки"
+
+#: account/public/home.php:100 public/home.php:43
+msgid "Quality materials and impeccable results"
+msgstr "Качествени материали и безупречни резултати"
+
+#: account/public/home.php:107 public/home.php:50
+msgid "Abs Workouts"
+msgstr "Тренировки за корема"
+
+#: account/public/home.php:108 public/home.php:51
+msgid "Strength training for everyone"
+msgstr "Силови тренировки за всички"
+
+#: account/public/home.php:112 account/public/home.php:124
+#: account/public/home.php:136 account/public/home.php:148
+#: account/public/home.php:160 account/public/home.php:172
+#: account/public/home.php:184 account/public/home.php:196 public/home.php:55
+#: public/home.php:67 public/home.php:79 public/home.php:91 public/home.php:103
+#: public/home.php:115 public/home.php:127 public/home.php:139
+msgid "Join Today"
+msgstr "Присъединете се днес"
+
+#: account/public/home.php:119 public/home.php:62
+msgid "Biceps/Triceps Workouts"
+msgstr "Тренировки за бицепс/трицепс"
+
+#: account/public/home.php:120 public/home.php:63
+msgid "Fast results"
+msgstr "Бързи резултати"
+
+#: account/public/home.php:131 public/home.php:74
+msgid "Back Workouts"
+msgstr "Тренировки за гръб"
+
+#: account/public/home.php:132 public/home.php:75
+msgid "Innovative back workouts"
+msgstr "Иновативни тренировки за гръб"
+
+#: account/public/home.php:143 public/home.php:86
+msgid "Cardio Workouts"
+msgstr "Кардио тренировки"
+
+#: account/public/home.php:144 public/home.php:87
+#, fuzzy
+#| msgid "Start workout"
+msgid "Selected cardio workouts"
+msgstr "Започнете тренировка"
+
+#: account/public/home.php:155 public/home.php:98
+msgid "Chest Workouts"
+msgstr "Тренировки за гърди"
+
+#: account/public/home.php:156 public/home.php:99
+msgid "Impressive results"
+msgstr "Впечатляващи резултати"
+
+#: account/public/home.php:167 public/home.php:110
+msgid "Deltoids Workouts"
+msgstr "Тренировки за делтоиди"
+
+#: account/public/home.php:168 public/home.php:111
+msgid "Specially detailed workouts"
+msgstr "Тренировки с подробни инструкции"
+
+#: account/public/home.php:179 public/home.php:122
+msgid "Legs Workouts"
+msgstr "Тренировки за крака"
+
+#: account/public/home.php:180 public/home.php:123
+msgid "High level leg training"
+msgstr "Високо ниво на тренировка за крака"
+
+#: account/public/home.php:191 public/home.php:134
+msgid "New exercises"
+msgstr "Нови упражнения"
+
+#: account/public/home.php:192 public/home.php:135
+#, fuzzy
+#| msgid "Selected workouts for everyone"
+msgid "New workouts every week"
+msgstr "Избрани тренировки за всеки"
+
+#: account/public/home.php:212 public/home.php:155
+msgid "TIMETABLE"
+msgstr "TIMETABLE"
+
+#: account/public/home.php:213 public/home.php:156
+msgid "Working Hours & Classes"
+msgstr "Работно време и занятия"
+
+#: account/public/home.php:235 account/public/home.php:357
+#: account/public/home.php:505 account/public/home.php:603 public/home.php:178
+#: public/home.php:300 public/home.php:448 public/home.php:546
+msgid "ABS"
+msgstr "КОРЕМ"
+
+#: account/public/home.php:247 account/public/home.php:345
+#: account/public/home.php:419 account/public/home.php:517 public/home.php:190
+#: public/home.php:288 public/home.php:362 public/home.php:460
+msgid "ARMS"
+msgstr "РЪЦЕ"
+
+#: account/public/home.php:259 account/public/home.php:307
+#: account/public/home.php:333 account/public/home.php:493 public/home.php:202
+#: public/home.php:250 public/home.php:276 public/home.php:436
+msgid "BACK"
+msgstr "ГРЪБ"
+
+#: account/public/home.php:271 account/public/home.php:321
+#: account/public/home.php:615 public/home.php:214 public/home.php:264
+#: public/home.php:558
+#, fuzzy
+#| msgid "CARDION"
+msgid "CARDIO"
+msgstr "КАРДИО"
+
+#: account/public/home.php:283 account/public/home.php:407
+#: account/public/home.php:529 account/public/home.php:639 public/home.php:226
+#: public/home.php:350 public/home.php:472 public/home.php:582
+msgid "NICE BODY"
+msgstr "ХУБАВО ТЯЛО"
+
+#: account/public/home.php:295 account/public/home.php:479
+#: account/public/home.php:579 public/home.php:238 public/home.php:422
+#: public/home.php:522
+msgid "LOSING WEIGHT"
+msgstr "ОТСЛАБВАНЕ"
+
+#: account/public/home.php:369 account/public/home.php:443
+#: account/public/home.php:553 account/public/home.php:627 public/home.php:312
+#: public/home.php:386 public/home.php:496 public/home.php:570
+msgid "CHEST"
+msgstr "ГЪРДИ"
+
+#: account/public/home.php:381 account/public/home.php:455
+#: account/public/home.php:565 account/public/home.php:651 public/home.php:324
+#: public/home.php:398 public/home.php:508 public/home.php:594
+msgid "LEGS"
+msgstr "КРАКА"
+
+#: account/public/home.php:393 account/public/home.php:467
+#: account/public/home.php:541 account/public/home.php:591 public/home.php:336
+#: public/home.php:410 public/home.php:484 public/home.php:534
+msgid "MIXED"
+msgstr "СМЕСЕНО"
+
+#: account/public/home.php:431 public/home.php:374
+msgid "CARDION"
+msgstr "КАРДИО"
+
+#: account/public/home.php:727 public/home.php:670
+msgid "GET IN TOUCH"
+msgstr "СВЪРЖЕТЕ СЕ"
+
+#: account/public/home.php:728 public/home.php:671
+msgid "Leave a Message"
+msgstr "Оставете съобщение"
+
+#: account/public/j.php:21 public/j.php:21
+msgid "PERSONAL FITNESS TRAINER"
+msgstr "ЛИЧЕН ФИТНЕС ТРЕНЬОР"
+
+#: account/public/my-activity.php:134
+msgid "Duration:"
+msgstr "Продължителност:"
+
+#: account/public/my-workouts.php:107
+msgid "Create list"
+msgstr "Създай списък"
+
+#: account/public/my-workouts.php:117
+msgid "List name"
+msgstr "Име на списъка"
+
+#: account/public/my-workouts.php:123 account/public/profile.php:147
+msgid "Weight (kg)"
+msgstr "Тегло (кг)"
+
+#: account/public/my-workouts.php:129 account/public/profile.php:153
+msgid "Height (cm)"
+msgstr "Ръст (см)"
+
+#: account/public/my-workouts.php:135
+msgid "Short description:"
+msgstr "Кратко описание:"
+
+#: account/public/my-workouts.php:142 account/public/navbar.php:160
+#: public/old.login-form.php:9
+msgid "Create"
+msgstr "Създай"
+
+#: account/public/my-workouts.php:160 account/public/start-load.php:383
+#: account/public/start-workout.php:360
+msgid "You don't have any workout lists created yet."
+msgstr "Все още нямате създадени тренировъчни списъци."
+
+#: account/public/navbar.php:101 public/navbar.php:31 public/navbar2.php:101
+msgid "My profile"
+msgstr "Моят профил"
+
+#: account/public/navbar.php:106
+msgid "Workouts "
+msgstr "Тренировки"
+
+#: account/public/navbar.php:118 public/navbar.php:41 public/navbar2.php:118
+msgid "Screenshots"
+msgstr "Екранни снимки"
+
+#: account/public/navbar.php:123 public/navbar.php:46 public/navbar2.php:123
+msgid "Exercises"
+msgstr "Упражнения"
+
+#: account/public/navbar.php:128
+msgid "Reviews"
+msgstr "Отзиви"
+
+#: account/public/navbar.php:133
+msgid "Contact Us"
+msgstr "Свържете се с нас"
+
+#: account/public/navbar.php:138
+msgid "CANCEL SUBSCRIPTION"
+msgstr "АНУЛИРАЙ АБОНИМЕНТА"
+
+#: account/public/navbar.php:154 public/login-form.php:21
+#: public/old.login-form.php:3
+msgid "Login"
+msgstr "Вход"
+
+#: account/public/navigation.php:11 account/public/start-load.php:466
+#: account/public/start-workout.php:443
+msgid "Navigation"
+msgstr "Навигация"
+
+#: account/public/navigation.php:69
+msgid "Account status"
+msgstr "Статус на акаунта"
+
+#: account/public/navigation.php:73
+msgid "Active"
+msgstr "Активен"
+
+#: account/public/navigation.php:78
+msgid "Inactive"
+msgstr "Неактивен"
+
+#: account/public/navigation.php:79
+msgid "Activate now"
+msgstr "Активирай сега"
+
+#: account/public/orig.login.php:97
+msgid "Forgot My Password?"
+msgstr "Забравена парола?"
+
+#: account/public/orig.login.php:109
+msgid "Register for free"
+msgstr "Регистрирай се безплатно"
+
+#: account/public/profile.php:117
+msgid "Profile info"
+msgstr "Информация за профила"
+
+#: account/public/profile.php:123
+msgid "Names"
+msgstr "Имена"
+
+#: account/public/profile.php:129
+msgid "E-mail:"
+msgstr "Имейл:"
+
+#: account/public/profile.php:135
+msgid "Workout purposes"
+msgstr "Цели на тренировката"
+
+#: account/public/profile.php:138
+msgid "Please select your workout purposes *"
+msgstr "Моля, изберете целите на вашата тренировка *"
+
+#: account/public/profile.php:139
+msgid "Muscles"
+msgstr "Мускули"
+
+#: account/public/profile.php:140
+msgid "Losing weight"
+msgstr "Отслабване"
+
+#: account/public/profile.php:141
+msgid "Nice body"
+msgstr "Хубаво тяло"
+
+#: account/public/profile.php:142
+msgid "Mixed for everything"
+msgstr "Смесено за всичко"
+
+#: account/public/profile.php:159
+msgid "Age"
+msgstr "Възраст"
+
+#: account/public/profile.php:165
+msgid "Sex"
+msgstr "Пол"
+
+#: account/public/profile.php:168
+msgid "Please select your sex *"
+msgstr "Моля, изберете вашия пол *"
+
+#: account/public/profile.php:169
+msgid "Male"
+msgstr "Мъж"
+
+#: account/public/profile.php:170
+msgid "Famale"
+msgstr "Жена"
+
+#: account/public/profile.php:171
+msgid "Something else"
+msgstr "Друго"
+
+#: account/public/profile.php:177
+msgid "Update"
+msgstr "Обнови"
+
+#: account/public/screenshots.php:5 public/screenshots.php:5
+msgid "App screenshots"
+msgstr "Снимки на приложението"
+
+#: account/public/screenshots.php:6 public/screenshots.php:6
+msgid "Web screenshots"
+msgstr "Снимки на уеб сайта"
+
+#: account/public/select-workout.php:35 account/public/start-workout.php:141
+#: account/public/workout.php:20 account/public/workout.php:28
+msgid "Workout"
+msgstr "Тренировка"
+
+#: account/public/sidebar.php:36 public/sidebar.php:36
+msgid "About Us"
+msgstr "За нас"
+
+#: account/public/sidebar.php:43 public/sidebar.php:43
+msgid "Contact Information"
+msgstr "Контактна информация"
+
+#: account/public/sidebar.php:48 public/sidebar.php:48
+msgid "Office Address"
+msgstr "Офис адрес"
+
+#: account/public/sidebar.php:63 public/sidebar.php:63
+msgid "Email Us"
+msgstr "Изпратете ни имейл"
+
+#: account/public/sidebar.php:70 public/sidebar.php:70
+msgid "Office Open"
+msgstr "Работно време на офиса"
+
+#: account/public/sidebar.php:78 public/sidebar.php:78
+msgid "Follow Us"
+msgstr "Последвайте ни"
+
+#: account/public/sidebar.php:104 public/sidebar.php:104
+msgid "Newsletter"
+msgstr "Бюлетин"
+
+#: account/public/start-load.php:352 account/public/start-workout.php:338
+#: account/public/videos.php:13 account/public/videos.php:19
+#: account/public/videos.php:25 account/public/videos.php:31
+#: account/public/videos.php:37 account/public/videos.php:43
+#: public/videos.php:13 public/videos.php:19 public/videos.php:25
+#: public/videos.php:31 public/videos.php:37 public/videos.php:43
+msgid "Your browser does not support the video tag."
+msgstr "Вашият браузър не поддържа видео таг."
+
+#: account/public/start-load.php:364
+msgid ""
+"We have created a special series of training for you, you have chosen that "
+"you want to"
+msgstr "Създадохме специална серия тренировки за вас, вие избрахте да"
+
+#: account/public/start-load.php:370 account/public/start-workout.php:347
+msgid "You have successfully added this workout to your list."
+msgstr "Успешно добавихте тази тренировка в своя списък."
+
+#: account/public/start-load.php:374 account/public/start-workout.php:351
+msgid "Add to my workouts"
+msgstr "Добави към моите тренировки"
+
+#: account/public/start-load.php:384 account/public/start-workout.php:361
+msgid "Create workout list"
+msgstr "Създай списък с тренировки"
+
+#: account/public/start-load.php:408 account/public/start-workout.php:385
+msgid "Add"
+msgstr "Добави"
+
+#: account/public/start-load.php:422 account/public/start-load.php:453
+#: account/public/start-workout.php:399 account/public/start-workout.php:430
+msgid "Repeats"
+msgstr "Повторения"
+
+#: account/public/start-load.php:422 account/public/start-load.php:453
+#: account/public/start-workout.php:399 account/public/start-workout.php:430
+msgid "required"
+msgstr "задължително"
+
+#: account/public/start-load.php:431 account/public/start-load.php:458
+#: account/public/start-workout.php:408 account/public/start-workout.php:435
+msgid "Sets"
+msgstr "Серии"
+
+#: account/public/start-load.php:431 account/public/start-load.php:458
+#: account/public/start-workout.php:408 account/public/start-workout.php:435
+msgid "made"
+msgstr "изпълнени"
+
+#: account/public/start-load.php:445
+msgid "Statistics"
+msgstr "Статистика"
+
+#: account/public/start-recipe.php:47
+msgid "You have successfully added the recipe to the list of favorite recipes!"
+msgstr "Успешно добавихте рецептата в списъка с любими рецепти!"
+
+#: account/public/start-recipe.php:104 account/public/start-recipe.php:190
+msgid "Add to favorites"
+msgstr "Добави в любими"
+
+#: account/public/start-recipe.php:112 account/public/start-recipe.php:198
+msgid "Remove from favorites"
+msgstr "Премахни от любими"
+
+#: account/public/start-recipe.php:123
+msgid "Calories"
+msgstr "Калории"
+
+#: account/public/start-recipe.php:124
+msgid "Proteins"
+msgstr "Протеини"
+
+#: account/public/start-recipe.php:125
+msgid "Fat"
+msgstr "Мазнини"
+
+#: account/public/start-recipe.php:126
+msgid "CH"
+msgstr "Въглехидрати"
+
+#: account/public/start-recipe.php:129
+msgid "Goal"
+msgstr "Цел"
+
+#: account/public/start-recipe.php:130
+msgid "Total time"
+msgstr "Общо време"
+
+#: account/public/start-recipe.php:131
+msgid "Difficulty"
+msgstr "Трудност"
+
+#: account/public/start-recipe.php:132
+msgid "Nutritional values (per serving)"
+msgstr "Хранителни стойности (на порция)"
+
+#: account/public/start-recipe.php:136 account/public/start-recipe.php:170
+msgid "Ingredients"
+msgstr "Съставки"
+
+#: account/public/start-recipe.php:137
+msgid "1 person"
+msgstr "1 човек"
+
+#: account/public/start-recipe.php:156
+msgid "PREPARATION"
+msgstr "Приготвяне"
+
+#: account/public/start-recipe.php:205
+msgid "Enjoy your meal!"
+msgstr "Добър апетит!"
+
+#: account/public/start-workout.php:369
+msgid "Select a list"
+msgstr "Изберете списък"
+
+#: account/public/start-workout.php:372
+msgid "Please select a list *"
+msgstr "Моля, изберете списък *"
+
+#: account/public/videos.php:5 public/videos.php:5
+msgid "doing exercises"
+msgstr "Изпълняване на упражнения"
+
+#: account/public/videos.php:6 public/videos.php:6
+msgid "High-quality animation of"
+msgstr "Висококачествена анимация на"
+
+#: account/public/workout.php:89
+msgid "Choose a custom workout"
+msgstr "Изберете персонализирана тренировка"
+
+#: inc.php:164
+msgid "You,must be a member to use that service !"
+msgstr "Трябва да сте член, за да използвате тази услуга!"
+
+#: landing/mobixon/index.php:34 landing/nth/index.php:25
+msgid "Best Online Fitnes | Dailyfit24"
+msgstr "Най-добрият онлайн фитнес | Dailyfit24"
+
+#: landing/mobixon/index.php:58 landing/nth/index.php:43
+msgid "BEST ONLINE FITNESS COURSES"
+msgstr "НАЙ-ДОБРИТЕ ОНЛАЙН ФИТНЕС КУРСОВЕ"
+
+#: landing/mobixon/index.php:59 landing/nth/index.php:44
+msgid "MAKE"
+msgstr "СЪЗДАЙ"
+
+#: landing/mobixon/index.php:59 landing/nth/index.php:44
+msgid "YOUR BODY SHAPE"
+msgstr "ФИГУРАТА СИ"
+
+#: landing/mobixon/index.php:61 landing/nth/index.php:46
+msgid ""
+"Unleash your potential and embark on a journey towards a stronger,\n"
+"            fitter, and more confident you. Sign up for 'Make Your Body "
+"Shape' now\n"
+"            and witness the incredible transformation your body is capable "
+"of!"
+msgstr ""
+"Освободете своя потенциал и поемете по пътя към по-силно,\n"
+"по-фит и по-уверено Аз. Запишете се в „Създай фигурата си“ сега\n"
+"и наблюдавайте невероятната трансформация, на която е способен тялото ви!"
+
+#: landing/mobixon/index.php:74 landing/nth/index.php:60
+msgid "EXPLORE OUR PROGRAM"
+msgstr "ОПЗНАЙТЕ НАШАТА ПРОГРАМА"
+
+#: landing/mobixon/index.php:83 landing/nth/index.php:69
+msgid "Strength"
+msgstr "Сила"
+
+#: landing/mobixon/index.php:85 landing/nth/index.php:71
+msgid ""
+"Embrace the essence of strength as we delve into its various\n"
+"                dimensions physical, mental, and emotional."
+msgstr ""
+"Прегърнете същността на силата, докато разглеждаме нейните различни\n"
+"аспекти - физически, умствени и емоционални."
+
+#: landing/mobixon/index.php:92 landing/nth/index.php:78
+msgid "Physical Fitness"
+msgstr "Физическа форма"
+
+#: landing/mobixon/index.php:94 landing/nth/index.php:80
+msgid ""
+"It encompasses a range of activities that improve health, strength,\n"
+"                flexibility, and overall well-being."
+msgstr ""
+"Тя включва набор от дейности, които подобряват здравето, силата,\n"
+"гъвкавостта и общото благополучие."
+
+#: landing/mobixon/index.php:101 landing/nth/index.php:88
+msgid "Fat Lose"
+msgstr "Отслабване"
+
+#: landing/mobixon/index.php:103 landing/nth/index.php:90
+msgid ""
+"Through a combination of workout routines and expert guidance, we'll\n"
+"                empower you to reach your goals."
+msgstr ""
+"Чрез комбинация от тренировъчни програми и професионално насочване,\n"
+"ще ви помогнем да постигнете целите си."
+
+#: landing/mobixon/index.php:110 landing/nth/index.php:97
+msgid "Weight Gain"
+msgstr "Набиране на тегло"
+
+#: landing/mobixon/index.php:112 landing/nth/index.php:99
+msgid ""
+"Designed for individuals, our program offers an effective approach\n"
+"                to gaining weight in a sustainable manner."
+msgstr ""
+"Нашата програма, предназначена за отделни лица, предлага ефективен подход\n"
+"за устойчиво покачване на тегло."
+
+#: landing/mobixon/index.php:127 landing/nth/index.php:115
+msgid "THE CLASS YOU WILL GET HERE"
+msgstr "ЗАНЯТИЕТО, КОЕТО ЩЕ ПОЛУЧИТЕ ТУК"
+
+#: landing/mobixon/index.php:129 landing/nth/index.php:117
+msgid ""
+"Led by our team of expert and motivational instructors, \"The Class You\n"
+"            Will Get Here\" is a high-energy, results-driven session that "
+"combines\n"
+"            a perfect blend of cardio, strength training, and functional\n"
+"            exercises. Each class is carefully curated to keep you engaged "
+"and\n"
+"            challenged, ensuring you never hit a plateau in your fitness\n"
+"            endeavors."
+msgstr ""
+"Водено от нашия екип от експертни и мотивиращи инструктори, „Занятието, "
+"което\n"
+"ще получите тук“ е динамична сесия, насочена към резултати, съчетаваща\n"
+"перфектна комбинация от кардио, силова тренировка и функционални "
+"упражнения.\n"
+"Всяко занятие е внимателно подбрано, за да ви държи ангажирани и "
+"предизвикани,\n"
+"като гарантира, че никога няма да зациклите в своя фитнес напредък."
+
+#: landing/mobixon/index.php:136 landing/nth/index.php:124
+msgid "Book A Class"
+msgstr "Запази час"
+
+#: landing/mobixon/index.php:141 landing/nth/index.php:129
+msgid "WHY JOIN US ?"
+msgstr "ЗАЩО ДА СЕ ПРИСЪЕДИНИТЕ КЪМ НАС?"
+
+#: landing/mobixon/index.php:143 landing/nth/index.php:131
+msgid ""
+"Our diverse membership base creates a friendly and supportive\n"
+"        atmosphere, where you can make friends and stay motivated."
+msgstr ""
+"Нашето разнообразно членство създава приятелска и подкрепяща атмосфера,\n"
+"където можете да намерите приятели и да останете мотивирани."
+
+#: landing/mobixon/index.php:152 landing/nth/index.php:140
+msgid "Personal Trainer"
+msgstr "Личен треньор"
+
+#: landing/mobixon/index.php:153 landing/nth/index.php:141
+msgid "Unlock your potential with our expert Personal Trainers."
+msgstr "Отключете своя потенциал с помощта на нашите експертни лични треньори."
+
+#: landing/mobixon/index.php:159 landing/nth/index.php:147
+msgid "Practice Sessions"
+msgstr "Практически сесии"
+
+#: landing/mobixon/index.php:160 landing/nth/index.php:148
+msgid "Elevate your fitness with practice sessions."
+msgstr "Подобрете своята форма с практическите сесии."
+
+#: landing/mobixon/index.php:166 landing/nth/index.php:154
+msgid "Good Management"
+msgstr "Добро управление"
+
+#: landing/mobixon/index.php:167 landing/nth/index.php:155
+msgid "Supportive management, for your fitness success."
+msgstr "Подкрепящо управление за вашия фитнес успех."
+
+#: landing/nth/index.php:74
+msgid "Join Now"
+msgstr "Присъедини се сега"
+
+#: public/404.php:22
+msgid "0"
+msgstr "0"
+
+#: public/footer.php:80
+msgid "Termeni"
+msgstr "Условия"
+
+#: public/footer.php:85
+msgid "Imprint"
+msgstr "Отпечатък"
+
+#: public/footer.php:90
+msgid "Gestionarea Abonamentului"
+msgstr "Управление на абонамента"
+
+#: public/footer.php:102
+msgid "Imprimer"
+msgstr "Печат"
+
+#: public/footer.php:107
+msgid "Contact"
+msgstr "Контакт"
+
+#: public/navbar.php:36 public/navbar2.php:106
+msgid "Workouts"
+msgstr "Тренировки"
