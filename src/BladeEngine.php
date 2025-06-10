@@ -10,12 +10,14 @@ use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\VarDumper;
 use App\Contracts\TranslatorInterface;
 
 class BladeEngine
 {
     protected Factory $factory;
     protected array $data = [];
+    protected string $assetBase = '/assets';
 
     public function __construct(
         TranslatorInterface $translator,
@@ -25,6 +27,17 @@ class BladeEngine
     {
         $filesystem = new Filesystem();
         $bladeCompiler = new BladeCompiler($filesystem, $cachePath);
+        $bladeCompiler->directive('dump', function ($expression) {
+            return "<?php \\Symfony\\Component\\VarDumper\\VarDumper::dump($expression); ?>";
+        });
+        $bladeCompiler->directive('dd', function ($expression) {
+            return "<?php \\Symfony\\Component\\VarDumper\\VarDumper::dump($expression); die(); ?>";
+        });
+        $assetBase = $this->assetBase; // взимаме го локално
+        $bladeCompiler->directive('asset', function ($expression) use ($assetBase) {
+            return "<?php echo '{$assetBase}/' . ltrim(trim($expression, \"'\\\"\"), '/'); ?>";
+        });
+
         $resolver = new EngineResolver();
         $resolver->register('blade', fn() => new CompilerEngine($bladeCompiler));
         $finder = new FileViewFinder($filesystem, [$viewsPath]);
