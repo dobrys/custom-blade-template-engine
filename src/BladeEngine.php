@@ -17,12 +17,13 @@ class BladeEngine
 {
     protected Factory $factory;
     protected array $data = [];
-    protected string $assetBase = '/assets';
+
 
     public function __construct(
         TranslatorInterface $translator,
         string $viewsPath,
-        string $cachePath
+        string $cachePath,
+                            $assetBase = '/assets'
     )
     {
         $filesystem = new Filesystem();
@@ -33,7 +34,7 @@ class BladeEngine
         $bladeCompiler->directive('dd', function ($expression) {
             return "<?php \\Symfony\\Component\\VarDumper\\VarDumper::dump($expression); die(); ?>";
         });
-        $assetBase = $this->assetBase; // взимаме го локално
+        var_dump($assetBase);
         $bladeCompiler->directive('asset', function ($expression) use ($assetBase) {
             return "<?php echo '{$assetBase}/' . ltrim(trim($expression, \"'\\\"\"), '/'); ?>";
         });
