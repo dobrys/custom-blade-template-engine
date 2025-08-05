@@ -26,7 +26,7 @@
         "illuminate/events": "^11.0",
         "illuminate/translation": "^11.0",
         "gettext/gettext": "^5.7",
-        "gettext/php-scanner": "^2.0"
+        "gettext/php-scanner": "^2.0",
 		"symfony/var-dumper": "^7.3"
     }
 }

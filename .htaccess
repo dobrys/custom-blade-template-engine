@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Игнорирай определени файлови разширения (не ги пренасочвай)
+RewriteCond %{REQUEST_URI} \.(css|js|png|jpe?g|gif|ico|svg|webp|woff2?|ttf|eot|mp4|webm|ogg|json)$ [NC]
+RewriteRule ^ - [L]
+
+# Ако файл или директория съществува – не прави нищо
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Всичко останало към index.php
+RewriteRule ^ index.php [QSA,L]

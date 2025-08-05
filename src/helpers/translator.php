@@ -3,7 +3,7 @@
 use App\Contracts\TranslatorInterface;
 
 if (!function_exists('__')) {
-    function __(string $key, array $replace = [], ?string $locale = null)
+    function __(string $key, array $replace = [], ?string $locale = null): string
     {
         global $translator;
         if (!isset($translator) || !$translator instanceof TranslatorInterface) {
