@@ -6,7 +6,7 @@ return [
     'theme' => 'default',
     'translator' => 'gettext', //laravel или 'gettext'
     // Кой клас обработва логина
-    'handler' => 'null',
+    'handler' => '\App\Auth\DefaultLoginHandler',
 
     // Къде да пращаме след успешен логин
     'redirect_success' => '/',

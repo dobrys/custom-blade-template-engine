@@ -2,28 +2,38 @@
 
 global $config;
 
-use App\SessionManager;
-use App\UserManager;
+
 
 
 //var_dump($config);
 global $blade;
 //$umg = new App\UserManager();$new = $umg->createUser('dobrys','3aspal3aek','dobrys@abv.bg');var_dump($new);
 $errors = [];
-
-
+//dump($config);
+$handlerClass = $config["handler"];
+$redirect_success = $config["redirect_success"];
+$lhClass = $config["class"];
+$loginHandler = new $handlerClass;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username'] ?? '');
-    $password = $_POST['password'] ?? '';
+    $credentials = [];
 
-    if (dummyValidate($username,$password)) {
-        header('Location: /beauty-factor');
+    if (!empty($_POST['username']) && !empty($_POST['password'])) {
+        $credentials['username'] = trim($_POST['username']);
+        $credentials['password'] = $_POST['password'];
+    } elseif (!empty($_POST['phone'])) {
+        $credentials['phone'] = trim($_POST['phone']);
+    }
+
+    if ($loginHandler->attempt($credentials)) {
+        header('Location: '.$redirect_success);
         exit;
     } else {
-        $errors[] = __('Invalid username or password.');
+        $errors[] = 'Invalid credentials.';
     }
 }
+
+
 $blade->assign('title', __('Login'));
 $blade->assign('errors', $errors);
 $blade->display('pages.login');
