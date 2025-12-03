@@ -75,6 +75,35 @@ class BladeEngine
     {
         return $this->factory->make($template, $this->data)->render();
     }
+    public function renderString(string $string, array $data = []): string
+    {
+        $bladeCompiler = new \Illuminate\View\Compilers\BladeCompiler(
+            new \Illuminate\Filesystem\Filesystem(),
+            sys_get_temp_dir()
+        );
+
+        // Комбинираме глобални и локални данни
+        $data = array_merge($this->data, $data);
+
+        // Автоматично добавяме $ преди имена на променливи вътре в {{ }}
+        // Пример: {{ company_name }} → {{ $company_name }}
+        $string = preg_replace('/\{\{\s*(?!\$)([a-zA-Z_][a-zA-Z0-9_]*)\s*\}\}/', '{{ \$$1 }}', $string);
+
+        // Компилираме Blade стринга в PHP код
+        $php = $bladeCompiler->compileString($string);
+
+        // Изпълняваме PHP кода в затворен scope с подадените данни
+        ob_start();
+        extract($data, EXTR_SKIP);
+        try {
+            eval('?>' . $php);
+        } catch (\Throwable $e) {
+            ob_end_clean();
+            throw $e;
+        }
+
+        return ob_get_clean();
+    }
 
     public function display(string $template): void
     {
