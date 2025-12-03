@@ -3,8 +3,8 @@
 namespace App;
 
 use App\Contracts\TranslatorInterface;
-require_once 'src/helpers/functions.php';
-require_once 'src/helpers/translator.php';
+require_once  __DIR__ . '/../src/helpers/functions.php';
+require_once  __DIR__ . '/../src/helpers/translator.php';
 class App {
     public BladeEngine $blade;
     public TranslatorInterface $translator;
@@ -24,6 +24,7 @@ class App {
 
         $this->translator = new $translatorClass($config['lang_dir'], $this->locale);
         $theme = $config['theme'] ?? 'default';
+
         $this->blade = new \App\BladeEngine(
             $this->translator,
             $config['views_dir'],
