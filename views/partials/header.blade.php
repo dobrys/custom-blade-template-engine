@@ -9,8 +9,12 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a href="/" class="nav-link active">{{__('Home')}}</a></li>
-                <li class="nav-item"><a href="/login" class="nav-link active">{{__('Log-in')}}</a></li>
-                <li class="nav-item"><a href="/logout" class="nav-link active">{{__('Log-out')}}</a></li>
+                @if($is_logged_in)
+                    <li class="nav-item"><a href="/logout" class="nav-link active">{{__('Log-out')}}</a></li>
+                @else
+                    <li class="nav-item"><a href="/login" class="nav-link active">{{__('Log-in')}}</a></li>
+                @endif
+
             </ul>
         </div>
     </div>

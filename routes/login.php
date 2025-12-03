@@ -2,10 +2,6 @@
 
 global $config;
 
-
-
-
-//var_dump($config);
 global $blade;
 //$umg = new App\UserManager();$new = $umg->createUser('dobrys','3aspal3aek','dobrys@abv.bg');var_dump($new);
 $errors = [];
