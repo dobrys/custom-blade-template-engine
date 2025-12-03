@@ -1,21 +1,15 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Заглавие на страницата')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        html, body {
-            height: 100%;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        main {
-            flex: 1 0 auto;
-        }
-        footer {
-            flex-shrink: 0;
-        }
-    </style>
-</head>
+<header class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-gradient" href="/">
+            <i class="bi bi-stars me-2"></i>{{__('My Site')}}
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="/" class="nav-link active">{{__('Home')}}</a></li>
+            </ul>
+        </div>
+    </div>
+</header>

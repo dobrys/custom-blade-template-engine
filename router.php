@@ -4,13 +4,6 @@ $middlewares = [
     'auth' => \App\Middleware\AuthMiddleware::class,
 ];
 // Основните статични маршрути
-/*$routes = [
-    'home'     => __DIR__ . '/routes/home.php',
-    'profile'  => __DIR__ . '/routes/profile.php',
-    'login'    => __DIR__ . '/routes/login.php',
-    'single'   => __DIR__ . '/routes/single.php',
-    'terms'   => __DIR__ . '/routes/terms.php',
-];*/
 $routes = [
     'home'    => ['file' => __DIR__ . '/routes/home.php', 'middleware' => ['auth']],
     'profile' => ['file' => __DIR__ . '/routes/profile.php', 'middleware' => ['auth']],

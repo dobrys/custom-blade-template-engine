@@ -1,47 +1,25 @@
 @extends('layout.default')
 
+@section('title', '404 - Page Not Found')
 
 @section('content')
-    <!-- Inne Page Banner Area Start Here -->
-    <section class="inner-page-banner bg-common">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs-area">
-                        <h1>Error Page</h1>
-                        <ul>
-                            <li>
-                                <a href="/">Home</a>
-                            </li>
-                            <li>404 Page</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Inne Page Banner Area End Here -->
-    <!-- Error Page Area Start Here -->
-    <section class="error-page-wrap padding-top-80 padding-bottom-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="error-content-box">
-                        <div class="error-figure-wrap">
-                            <img src="@themeAsset('img/figure/404.png')" alt="404" class="img-fluid">
-                            <div class="error-center-figure">
-                                <img src="@themeAsset('img/figure/404-middle.png')" alt="404" class="img-fluid">
-                            </div>
-                        </div>
-                        <h2 class="item-title">Sorry! Page Was Not Found</h2>
-                        <p class="item-details">The page you are looking is not available or has been removed.
-                            Try going to Home Page by using the button below.</p>
-                        <a href="/" class="item-btn">GO TO HOME PAGE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Error Page Area End Here -->
-@endsection
+    <section class="min-vh-100 d-flex flex-column align-items-center justify-content-center text-center position-relative bg-dark text-light overflow-hidden">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-glow"></div>
 
+        <div class="container position-relative">
+            <div class="display-1 fw-bold text-gradient mb-3">404</div>
+            <h2 class="mb-3 text-gradient">Page Not Found</h2>
+            <p class="text-muted mb-4">
+                Oops! The page you’re looking for doesn’t exist or has been moved.
+            </p>
+
+            <a href="/home" class="btn btn-outline-light rounded-pill px-4 shadow">
+                <i class="bi bi-house-door me-2"></i> Back to Home
+            </a>
+
+            <div class="mt-5">
+                <i class="bi bi-stars display-5 text-gradient"></i>
+            </div>
+        </div>
+    </section>
+@endsection
