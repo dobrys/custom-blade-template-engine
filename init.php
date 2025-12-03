@@ -4,7 +4,7 @@ use App\LanguageDetector;
 
 require_once 'vendor/autoload.php';
 
-
+global $blade;
 \App\SessionManager::start();
 $isLoggedIn = SessionManager::isLoggedIn();
 $config = require_once 'config.php';
@@ -21,6 +21,7 @@ $dir = $detector->getDirection();
 $isValidLanguage = $detector->isValidLanguage($lang);
 $_SESSION['locale'] =$locale;
 //dump($locale,$dir ,$lang);
+//dump($fullUrl);
 if (isset($_GET['theme'])) {
     $_SESSION['theme'] = $_GET['theme'];
 }
@@ -29,5 +30,8 @@ $theme_to_use = $_SESSION['theme'] ?? 'default';
 $config['theme'] = $theme_to_use;
 
 $app = new \App\App($config);
-
 $GLOBALS['blade'] = $app->blade;
+
+$blade->assign('site_language', $lang);
+$blade->assign('text_direction', $dir);
+$blade->assign('siteURL', $fullUrl);
