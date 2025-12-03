@@ -1,5 +1,7 @@
 @extends('layout.default')
+
 @section('content')
+    @include('partials.header')
     <h1 class="text-center">Home Page</h1>
     @push('scripts')
         <script>
