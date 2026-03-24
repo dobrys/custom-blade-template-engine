@@ -57,6 +57,25 @@
                     @endif
                 @endforeach
 
+                    {{-- Language switcher --}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            🌐 {{ strtoupper($site_language) }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                            @foreach($languages as $code => $info)
+                                @if($code !== 'default')
+                                    <li>
+                                        <a class="dropdown-item {{ $site_language === $code ? 'active' : '' }}"
+                                           href="/?lang={{ $code }}">
+                                            {{ strtoupper($code) }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </li>
+
                 {{-- Login / Logout --}}
                 <li class="nav-item ms-lg-2">
                     @if($is_logged_in)

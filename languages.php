@@ -16,5 +16,6 @@ return [
     'sa' => ['locale' => 'ar_AR', 'dir' => 'rtl'], // арабски език → RTL
     'sd' => ['locale' => 'ar_AR', 'dir' => 'rtl'], // арабски език → RTL
     'iq' => ['locale' => 'ar_AR', 'dir' => 'rtl'], // арабски език → RTL
-    'default' => ['en' => 'en_US'], // default език
+    //'default' => ['en' => 'en_US'], // default език
+    'default' => ['bg' => 'bg_BG'], // default език
 ];

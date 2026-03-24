@@ -2,7 +2,7 @@
 
 @section('content')
     @include('partials.header')
-    <h1 class="text-center">Home Page - theme</h1>
+    <h1 class="text-center">{{__('Home Page - theme')}}</h1>
 
     @push('scripts')
         <script>

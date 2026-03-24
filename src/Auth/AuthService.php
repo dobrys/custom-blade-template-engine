@@ -31,24 +31,43 @@ class AuthService
             return;
         }
 
-        // Ако има UUID (примерно от външен provider)
+        // Сесията липсва, но JWT е валидно → възстановяваме сесията
+        if ($this->jwt->haveJwt() && !$this->jwt->isExpired()) {
+            $this->restoreSessionFromJwt();
+            return;
+        }
+
+        // Логин чрез UUID
         if (!empty($_REQUEST['public_uuid'])) {
             $this->loginWithUuid($_REQUEST['public_uuid']);
             return;
         }
 
+        // Логин чрез MSISDN
         if (!empty($_REQUEST['msisdn'])) {
             $this->loginWithMsisdn($_REQUEST['msisdn']);
             return;
         }
 
-        // Ако токенът е изтекъл — само redirect, не трием cookie-то
+        // Токенът е изтекъл → redirect
         if ($this->jwt->haveJwt() && $this->jwt->isExpired()) {
             $this->redirectToLogin('Session expired. Please log in again.');
         }
 
-        // Няма сесия или токен → redirect
+        // Няма нищо → redirect
         $this->redirectToLogin();
+    }
+
+    private function restoreSessionFromJwt(): void
+    {
+        $info = $this->jwt->getInfo();
+
+        if (isset($info['error'])) {
+            $this->redirectToLogin('Session expired. Please log in again.');
+        }
+
+        SessionManager::set('user_id',  $info['user_id']);
+        SessionManager::set('provider', $info['provider']);
     }
 
     /**
