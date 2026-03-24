@@ -11,6 +11,7 @@ class AuthMiddleware
 {
     public function handle(): void
     {
+        //die(var_dump(SK));
         global $config;
 
         $providers = $config['env'] === 'development'

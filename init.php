@@ -3,7 +3,10 @@ use App\SessionManager;
 use App\LanguageDetector;
 
 require_once 'vendor/autoload.php';
-
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+// init.php
+define('SK', $_ENV['JWT_SECRET']);
 global $blade;
 \App\SessionManager::start();
 $isLoggedIn = SessionManager::isLoggedIn();
@@ -33,6 +36,11 @@ $config['theme'] = $theme_to_use;
 
 $app = new \App\App($config);
 $GLOBALS['blade'] = $app->blade;
+
+$navItems = require __DIR__ . '/config/nav.php';
+$nav = new \App\Nav\NavBuilder($navItems, $isLoggedIn, $fullUrl);
+$blade->assign('nav', $nav->build());
+$blade->assign('currentUrl', $nav->getCurrentUrl());
 
 $blade->assign('site_language', $lang);
 $blade->assign('text_direction', $dir);
