@@ -2,46 +2,24 @@
 
 namespace App\Nav;
 
+use App\Nav\NavBuilder;
+use App\SessionManager;
 
 class Router
 {
-    private array $routes;
-    private array $middlewares;
-    private array $specialRoutes;
+    private array  $routes;
+    private array  $middlewares;
+    private array  $specialRoutes;
     private string $route;
     private $blade;
 
     public function __construct(array $routes, array $middlewares, $blade)
     {
-        $this->routes = $routes;
-        $this->middlewares = $middlewares;
-        $this->blade = $blade;
+        $this->routes        = $routes;
+        $this->middlewares   = $middlewares;
+        $this->blade         = $blade;
         $this->specialRoutes = $this->loadSpecialRoutes();
-        $this->route = $this->resolveRoute();
-    }
-
-    private function loadSpecialRoutes(): array
-    {
-        $mapPath = __DIR__ . '/../routes/map.php';
-        return file_exists($mapPath) ? require $mapPath : [];
-    }
-
-    private function resolveRoute(): string
-    {
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $route = trim($uri, '/');
-
-        if ($route === '') {
-            return 'home';
-        }
-
-        if (!preg_match('/^[a-zA-Z0-9\/_\-]+(\.php)?$/', $route)) {
-            http_response_code(400);
-            echo "Bad Request";
-            exit;
-        }
-
-        return preg_replace('/\.php$/', '', $route);
+        $this->route         = $this->resolveRoute();
     }
 
     public function dispatch(): void
@@ -57,6 +35,30 @@ class Router
         $this->notFound();
     }
 
+    private function resolveRoute(): string
+    {
+        $uri   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $route = trim($uri, '/');
+
+        if ($route === '') {
+            return 'home';
+        }
+
+        if (!preg_match('/^[a-zA-Z0-9\/_\-]+(\.php)?$/', $route)) {
+            http_response_code(400);
+            echo "Bad Request";
+            exit;
+        }
+
+        return preg_replace('/\.php$/', '', $route);
+    }
+
+    private function loadSpecialRoutes(): array
+    {
+        $mapPath = __DIR__ . '/../routes/map.php';
+        return file_exists($mapPath) ? require $mapPath : [];
+    }
+
     private function matchSpecialRoutes(): bool
     {
         foreach ($this->specialRoutes as $pattern => [$file, $params, $mws]) {
@@ -67,6 +69,7 @@ class Router
                 $_REQUEST = array_merge($_REQUEST, $_GET);
 
                 $this->runMiddlewares($mws);
+                $this->refreshNavAndAuth();
 
                 $target = __DIR__ . '/../routes/' . ltrim($file, '/');
                 if (!file_exists($target)) {
@@ -82,15 +85,6 @@ class Router
         return false;
     }
 
-    private function runMiddlewares(array $mws): void
-    {
-        foreach ($mws as $mwName) {
-            if (isset($this->middlewares[$mwName])) {
-                (new $this->middlewares[$mwName])->handle();
-            }
-        }
-    }
-
     private function matchStaticRoute(): bool
     {
         if (!isset($this->routes[$this->route])) {
@@ -100,6 +94,7 @@ class Router
         $info = $this->routes[$this->route];
 
         $this->runMiddlewares($info['middleware'] ?? []);
+        $this->refreshNavAndAuth();
 
         if (!file_exists($info['file'])) {
             $this->notFound();
@@ -109,6 +104,31 @@ class Router
         $this->blade->assign('user', $this->route . '/account/');
         require_once $info['file'];
         exit;
+    }
+
+    private function runMiddlewares(array $mws): void
+    {
+        foreach ($mws as $mwName) {
+            if (isset($this->middlewares[$mwName])) {
+                (new $this->middlewares[$mwName])->handle();
+            }
+        }
+    }
+
+    private function refreshNavAndAuth(): void
+    {
+        $isLoggedIn = SessionManager::isLoggedIn();
+
+        $this->blade->assign('is_logged_in', $isLoggedIn);
+
+        $nav = new NavBuilder(
+            require __DIR__ . '/../../config/nav.php',
+            $isLoggedIn,
+            $this->route
+        );
+
+        $this->blade->assign('nav',        $nav->build());
+        $this->blade->assign('currentUrl', $nav->getCurrentUrl());
     }
 
     private function notFound(): void

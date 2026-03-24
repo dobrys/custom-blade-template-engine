@@ -1,48 +1,51 @@
 <?php
+
 use App\SessionManager;
 use App\LanguageDetector;
+use App\Nav\NavBuilder;
 
 require_once 'vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-// init.php
+
+// Environment
+Dotenv\Dotenv::createImmutable(__DIR__)->load();
 define('SK', $_ENV['JWT_SECRET']);
-global $blade;
-\App\SessionManager::start();
+
+// Session
+SessionManager::start();
 $isLoggedIn = SessionManager::isLoggedIn();
-//var_dump($isLoggedIn);
-$config = require_once 'config.php';
-//var_dump($config);
+
+// Config
+$config    = require __DIR__ . '/config.php';
 $languages = require __DIR__ . '/languages.php';
-$detector = new LanguageDetector($languages);
 
-$host = $detector->getHost();
-$subDomain = $detector->getSubdomain();
-$lang = $detector->getLanguage();
-$locale = $detector->getLocale();
-$protocol = $detector->getProtocol();
-$fullUrl = $detector->getFullUrl();
-$dir = $detector->getDirection();
-$isValidLanguage = $detector->isValidLanguage($lang);
-$_SESSION['locale'] =$locale;
-//dump($locale,$dir ,$lang);
-//dump($fullUrl);
+// Theme
 if (isset($_GET['theme'])) {
-    $_SESSION['theme'] = $_GET['theme'];
+    SessionManager::set('theme', $_GET['theme']);
 }
+$config['theme'] = SessionManager::get('theme') ?? 'default';
 
-$theme_to_use = $_SESSION['theme'] ?? 'default';
-$config['theme'] = $theme_to_use;
+// Language & locale
+$detector = new LanguageDetector($languages);
+$lang     = $detector->getLanguage();
+$locale   = $detector->getLocale();
+$dir      = $detector->getDirection();
+$fullUrl  = $detector->getFullUrl();
 
-$app = new \App\App($config);
-$GLOBALS['blade'] = $app->blade;
+SessionManager::set('locale', $locale);
 
-$navItems = require __DIR__ . '/config/nav.php';
-$nav = new \App\Nav\NavBuilder($navItems, $isLoggedIn, $fullUrl);
-$blade->assign('nav', $nav->build());
-$blade->assign('currentUrl', $nav->getCurrentUrl());
+// App & Blade
+$app   = new \App\App($config);
+$blade = $app->blade;
+$GLOBALS['blade'] = $blade;
 
-$blade->assign('site_language', $lang);
+// Nav — ще се обнови от Router::refreshNavAndAuth() след middleware
+$nav = new NavBuilder(require __DIR__ . '/config/nav.php', $isLoggedIn, $fullUrl);
+
+// Global blade variables
+// Забележка: is_logged_in и nav се обновяват от Router след middleware изпълнение
+$blade->assign('nav',            $nav->build());
+$blade->assign('currentUrl',     $nav->getCurrentUrl());
+$blade->assign('site_language',  $lang);
 $blade->assign('text_direction', $dir);
-$blade->assign('siteURL', $fullUrl);
-$blade->assign('is_logged_in', $isLoggedIn);
+$blade->assign('siteURL',        $fullUrl);
+$blade->assign('is_logged_in',   $isLoggedIn);
