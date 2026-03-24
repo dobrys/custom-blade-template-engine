@@ -2,19 +2,19 @@
 
 namespace App\Auth;
 
-use App\authJwt;
+use App\Auth\AuthJwt;
 use App\SessionManager;
 
 class AuthService
 {
-    private authJwt $jwt;
+    private AuthJwt $jwt;
     /** @var AuthProviderInterface[] */
     private array $providers;
     private string $logoutPage;
 
-    public function __construct(authJwt $jwt, array $providers = [], string $logoutPage = '/login')
+    public function __construct(AuthJwt $jwt, array $providers = [], string $logoutPage = '/login')
     {
-        $this->jwt = $jwt;
+        $this->jwt       = $jwt;
         $this->providers = $providers;
         $this->logoutPage = $logoutPage;
 
@@ -36,14 +36,15 @@ class AuthService
             $this->loginWithUuid($_REQUEST['public_uuid']);
             return;
         }
+
         if (!empty($_REQUEST['msisdn'])) {
             $this->loginWithMsisdn($_REQUEST['msisdn']);
             return;
         }
 
-        // Ако токенът е изтекъл
+        // Ако токенът е изтекъл — само redirect, не трием cookie-то
         if ($this->jwt->haveJwt() && $this->jwt->isExpired()) {
-            $this->logout('Session expired. Please log in again.');
+            $this->redirectToLogin('Session expired. Please log in again.');
         }
 
         // Няма сесия или токен → redirect
@@ -66,7 +67,8 @@ class AuthService
     public function loginWithUuid(string $uuid): void
     {
         foreach ($this->providers as $provider) {
-            $member = $provider->getMemberData($uuid);
+            // Поправка: правилното име на метода от интерфейса
+            $member = $provider->getMemberDataByUuid($uuid);
 
             if ($member && $provider->isActiveMember($member)) {
                 $this->login($member, $provider->getName());
@@ -74,23 +76,25 @@ class AuthService
             }
         }
 
-        $this->logout('Invalid or inactive member.');
+        $this->redirectToLogin('Invalid or inactive member.');
     }
+
+    /**
+     * Опит за логин чрез MSISDN.
+     * Поправка: method_exists() е излишен — методът е в интерфейса.
+     */
     public function loginWithMsisdn(string $msisdn): void
     {
         foreach ($this->providers as $provider) {
-            // Проверяваме дали доставчикът поддържа MSISDN логин
-            if (method_exists($provider, 'getMemberByMsisdn')) {
-                $member = $provider->getMemberByMsisdn($msisdn);
+            $member = $provider->getMemberDataByMsisdn($msisdn);
 
-                if ($member && $provider->isActiveMember($member)) {
-                    $this->login($member, $provider->getName());
-                    return;
-                }
+            if ($member && $provider->isActiveMember($member)) {
+                $this->login($member, $provider->getName());
+                return;
             }
         }
 
-        $this->logout('Invalid phone number or inactive subscription.');
+        $this->redirectToLogin('Invalid phone number or inactive subscription.');
     }
 
     /**
@@ -98,16 +102,14 @@ class AuthService
      */
     public function login(array $user, string $provider): void
     {
-        // Създаваме сесия
         SessionManager::set('user_id', $user['id'] ?? $user['user_id'] ?? 0);
         SessionManager::set('provider', $provider);
         SessionManager::set('user', $user);
 
-        // Създаваме JWT
         $this->jwt->createJWT(
-            $user['msisdn'] ?? '',
+            $user['msisdn']  ?? '',
             $user['service'] ?? 'main',
-            $user['id'] ?? 0,
+            $user['id']      ?? 0,
             $provider,
             608400,
             $_SERVER['HTTP_HOST'] ?? ''
@@ -115,7 +117,8 @@ class AuthService
     }
 
     /**
-     * Изход от системата.
+     * Излиза от системата — унищожава само сесията.
+     * Cookie-то се запазва и се проверява при следващ request.
      */
     public function logout(string $reason = null): void
     {
@@ -123,8 +126,7 @@ class AuthService
             SessionManager::set('redirect_reason', $reason);
         }
 
-        $this->jwt->removeJWT();
-        SessionManager::destroy();
+        SessionManager::logout();
         $this->redirectToLogin();
     }
 
@@ -133,14 +135,18 @@ class AuthService
      */
     public function user(): ?array
     {
-        return $this->isAuthenticated() ? $this->jwt->getJwtInfo() : null;
+        return $this->isAuthenticated() ? $this->jwt->getInfo() : null;
     }
 
     /**
-     * Пренасочване към login страница.
+     * Пренасочване към login страница с опционална причина.
      */
-    private function redirectToLogin(): void
+    private function redirectToLogin(string $reason = null): void
     {
+        if ($reason) {
+            SessionManager::set('redirect_reason', $reason);
+        }
+
         header("Location: {$this->logoutPage}");
         exit;
     }

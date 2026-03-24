@@ -2,13 +2,21 @@
 
 namespace App\Middleware;
 
+use App\Auth\AuthService;
+use App\Auth\Providers\NthProvider;
+use App\Auth\AuthJwt;
+
 class AuthMiddleware
 {
-    /**
-     * Основен метод за middleware-а
-     */
-    public function handle(): void {
-        //dump('bau');
-        return;
+    public function handle(): void
+    {
+        $jwt = new AuthJwt(SK);
+
+        $providers = [
+            new NthProvider(),
+        ];
+
+        $auth = new AuthService($jwt, $providers, '/login');
+        $auth->handle();
     }
 }
