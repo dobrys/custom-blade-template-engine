@@ -1,5 +1,6 @@
 <?php
 return [
+    'env' => 'development', // 'production'
     'lang_dir' => __DIR__ . '/lang',
     'views_dir' => __DIR__ . '/views',
     'cache_dir' => __DIR__ . '/cache',

@@ -2,15 +2,15 @@
 namespace App\Auth\Providers;
 
 use App\Auth\AuthProviderInterface;
-use App\nthMember;
+use App\Models\NthMember;
 
 class NthProvider implements AuthProviderInterface
 {
-    private nthMember $nth;
+    private NthMember $nth;
 
     public function __construct()
     {
-        $this->nth = new nthMember();
+        $this->nth = new NthMember();
     }
 
     public function getName(): string

@@ -3,20 +3,21 @@
 namespace App\Middleware;
 
 use App\Auth\AuthService;
-use App\Auth\Providers\NthProvider;
 use App\Auth\AuthJwt;
+use App\Auth\Providers\NthProvider;
+use App\Auth\Providers\DummyProvider;
 
 class AuthMiddleware
 {
     public function handle(): void
     {
-        $jwt = new AuthJwt(SK);
+        global $config;
 
-        $providers = [
-            new NthProvider(),
-        ];
+        $providers = $config['env'] === 'development'
+            ? [new DummyProvider()]
+            : [new NthProvider()];
 
-        $auth = new AuthService($jwt, $providers, '/login');
+        $auth = new AuthService(new AuthJwt(SK), $providers, '/login');
         $auth->handle();
     }
 }
