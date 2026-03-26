@@ -23,6 +23,7 @@ class App {
             : \App\Translations\LaravelTranslator::class;
 
         $this->translator = new $translatorClass($config['lang_dir'], $this->locale);
+        //die(var_dump($config['theme']));
         $theme = $config['theme'] ?? 'default';
 
         $this->blade = new \App\BladeEngine(

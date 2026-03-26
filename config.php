@@ -4,7 +4,7 @@ return [
     'lang_dir' => __DIR__ . '/lang',
     'views_dir' => __DIR__ . '/views',
     'cache_dir' => __DIR__ . '/cache',
-    'theme' => 'default',
+    'theme' => 'astro',
     'translator' => 'gettext', //laravel или 'gettext'
     // Кой клас обработва логина
     'handler' => '\App\Auth\DefaultLoginHandler',
