@@ -45,6 +45,7 @@ $nav = new NavBuilder(require __DIR__ . '/config/nav.php', $isLoggedIn, $fullUrl
 // Забележка: is_logged_in и nav се обновяват от Router след middleware изпълнение
 $blade->assign('nav',            $nav->build());
 $blade->assign('currentUrl',     $nav->getCurrentUrl());
+$blade->assign('languages',  $languages);
 $blade->assign('site_language',  $lang);
 $blade->assign('text_direction', $dir);
 $blade->assign('siteURL',        $fullUrl);

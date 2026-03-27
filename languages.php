@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'en' => ['locale' => 'en_US'],
     'bg' => ['locale' => 'bg_BG'],
     'de' => ['locale' => 'de_DE'],
     'ro' => ['locale' => 'ro_RO'],

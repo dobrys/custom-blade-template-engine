@@ -139,10 +139,15 @@ class AuthService
      * Излиза от системата — унищожава само сесията.
      * Cookie-то се запазва и се проверява при следващ request.
      */
+
     public function logout(string $reason = null): void
     {
         if ($reason) {
             SessionManager::set('redirect_reason', $reason);
+        }
+
+        if ($_ENV['JWT_REMOVE_ON_LOGOUT'] ?? false) {
+            $this->jwt->removeJWT();
         }
 
         SessionManager::logout();

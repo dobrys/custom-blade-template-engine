@@ -16,6 +16,11 @@ class App {
         if (isset($_REQUEST['lang'])) {
             $this->locale = $_REQUEST['lang'];
             $_SESSION['locale'] = $this->locale;
+
+            // Пренасочваме без ?lang= параметъра
+            $referer = $_SERVER['HTTP_REFERER'] ?? '/';
+            header('Location: ' . $referer);
+            exit;
         }
 
         $translatorClass = $config['translator'] === 'gettext'
