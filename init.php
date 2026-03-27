@@ -19,11 +19,11 @@ $config    = require __DIR__ . '/config.php';
 $languages = require __DIR__ . '/languages.php';
 
 // Theme
-if (isset($_GET['theme'])) {
+/*if (isset($_GET['theme'])) {
     SessionManager::set('theme', $_GET['theme']);
 }
-$config['theme'] = SessionManager::get('theme') ?? 'default';
-
+$config['theme'] = SessionManager::get('theme') ?? 'astro';*/
+//var_dump($config);
 // Language & locale
 $detector = new LanguageDetector($languages);
 $lang     = $detector->getLanguage();

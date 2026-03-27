@@ -1,0 +1,39 @@
+.astro-body {
+    background: radial-gradient(circle at top, #1b1f3b, #06070f);
+    color: #e5e5f0;
+}
+
+
+.astro-navbar {
+    background: rgba(10, 12, 30, 0.9);
+    backdrop-filter: blur(6px);
+}
+
+
+.astro-hero {
+    background: linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.9)),
+    url('/themes/default/assets/img/stars.jpg') center/cover no-repeat;
+}
+
+
+.astro-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+}
+
+
+.astro-card:hover {
+    box-shadow: 0 0 25px rgba(120, 90, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+
+.astro-symbol {
+    font-size: 32px;
+}
+
+
+.astro-footer {
+    background: rgba(0,0,0,0.8);
+}
