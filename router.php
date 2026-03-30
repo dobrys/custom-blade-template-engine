@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/init.php';
 global $blade;
 
 $middlewares = [
@@ -7,6 +7,7 @@ $middlewares = [
 ];
 
 $routes = [
+    'assets'    => ['file' => __DIR__ . '/routes/assets.php'],
     'home'      => ['file' => __DIR__ . '/routes/home.php',            ],
     'profile'   => ['file' => __DIR__ . '/routes/profile.php',          'middleware' => ['auth']],
     'login'     => ['file' => __DIR__ . '/routes/login.php'],
@@ -15,5 +16,6 @@ $routes = [
     'terms'     => ['file' => __DIR__ . '/routes/terms.php'],
     'subscribe' => ['file' => __DIR__ . '/landing/mobixon/index.php'],
 ];
+
 
 (new \App\Nav\Router($routes, $middlewares, $blade))->dispatch();

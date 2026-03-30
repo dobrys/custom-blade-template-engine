@@ -7,7 +7,7 @@
     <section class="hero position-relative overflow-hidden d-flex align-items-center">
         <video autoplay muted loop playsinline class="position-absolute w-100 h-100" style="object-fit: cover; z-index: 0;">
 
-            <source src="{{ asset('video/astrology-bgr.mp4') }}" type="video/mp4">
+            <source src="{{ theme_asset('video/astrology-bgr.mp4') }}" type="video/mp4">
         </video>
         <div class="position-absolute w-100 h-100" style="background: rgba(11, 15, 26, 0.75); z-index: 1;"></div>
 

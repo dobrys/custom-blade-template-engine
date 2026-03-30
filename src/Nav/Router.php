@@ -39,9 +39,13 @@ class Router
     {
         $uri   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $route = trim($uri, '/');
-
+        //die(var_dump($route));
         if ($route === '') {
             return 'home';
+        }
+
+        if (str_starts_with($route, 'themes')) {
+            return 'assets';
         }
 
         if (!preg_match('/^[a-zA-Z0-9\/_\-]+(\.php)?$/', $route)) {
