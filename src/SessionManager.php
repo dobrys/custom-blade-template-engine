@@ -46,6 +46,8 @@ class SessionManager
 
     public static function get(string $key)
     {
+        //var_dump($key.$_SESSION);
+        //var_dump($_SESSION[$key]);
         return $_SESSION[$key] ?? null;
     }
 
@@ -65,7 +67,10 @@ class SessionManager
 
     public static function clear(string $key): void
     {
+        var_dump($key);
+        var_dump($_SESSION[$key]);
         unset($_SESSION[$key]);
+        var_dump($_SESSION);
     }
 
     public static function logout(): void

@@ -7,13 +7,14 @@ $middlewares = [
 ];
 
 $routes = [
-    'assets'    => ['file' => __DIR__ . '/routes/assets.php'],
-    'home'      => ['file' => __DIR__ . '/routes/home.php',            ],
-    'profile'   => ['file' => __DIR__ . '/routes/profile.php',          'middleware' => ['auth']],
-    'login'     => ['file' => __DIR__ . '/routes/login.php'],
-    'logout'    => ['file' => __DIR__ . '/routes/logout.php'],
-    'single'    => ['file' => __DIR__ . '/routes/single.php'],
-    'terms'     => ['file' => __DIR__ . '/routes/terms.php'],
+    'assets' => ['file' => __DIR__ . '/routes/assets.php'],
+    'signin' => ['file' => __DIR__ . '/routes/signin.php', 'middleware' => ['auth']],
+    'home' => ['file' => __DIR__ . '/routes/home.php'],
+    'profile' => ['file' => __DIR__ . '/routes/profile.php', 'middleware' => ['auth']],
+    'login' => ['file' => __DIR__ . '/routes/login.php'],
+    'logout' => ['file' => __DIR__ . '/routes/logout.php'],
+    'single' => ['file' => __DIR__ . '/routes/single.php'],
+    'terms' => ['file' => __DIR__ . '/routes/terms.php'],
     'subscribe' => ['file' => __DIR__ . '/landing/mobixon/index.php'],
 ];
 

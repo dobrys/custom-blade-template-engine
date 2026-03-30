@@ -26,6 +26,7 @@ class AuthService
      */
     public function handle(): void
     {
+        //die('HANDLE');
         // Вече логнат и токенът е валиден
         if ($this->isAuthenticated()) {
             return;

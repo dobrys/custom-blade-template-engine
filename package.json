@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "engine",
+  "version": "1.0.0",
+  "description": "Custom template engine , using BLADE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "svelte": "^5.39.10",
+    "vite": "^6.3.6"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.3.3"
+  }
+}

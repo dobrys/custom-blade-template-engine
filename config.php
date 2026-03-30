@@ -4,7 +4,7 @@ return [
     'lang_dir' => __DIR__ . '/lang',
     'views_dir' => __DIR__ . '/views',
     'cache_dir' => __DIR__ . '/cache',
-    'theme' => 'astro',
+    'theme' => 'default',
     'translator' => 'gettext', //laravel или 'gettext'
     // Кой клас обработва логина
     'handler' => '\App\Auth\DefaultLoginHandler',
@@ -14,4 +14,6 @@ return [
 
     // Къде при грешка (ако не е AJAX)
     'redirect_failure' => '/login',
+    'special_uri'=>['/login','/logout','/signin'],
+    'next_uri_var'=>'next_page'
 ];

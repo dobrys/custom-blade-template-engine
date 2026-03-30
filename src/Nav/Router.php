@@ -37,9 +37,15 @@ class Router
 
     private function resolveRoute(): string
     {
+        global $config;
+        $special = $config['special_uri'];
+        $next = $config['next_uri_var'];
         $uri   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        if (!in_array($uri, $special)) {
+            SessionManager::set($next, $uri);
+        }
         $route = trim($uri, '/');
-        //die(var_dump($route));
+
         if ($route === '') {
             return 'home';
         }

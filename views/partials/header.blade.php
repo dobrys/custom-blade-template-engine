@@ -1,3 +1,4 @@
+
 <header class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm py-3">
     <div class="container">
         <a class="navbar-brand fw-bold text-gradient" href="/">
@@ -92,4 +93,5 @@
             </ul>
         </div>
     </div>
+
 </header>

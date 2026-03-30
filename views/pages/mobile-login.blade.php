@@ -21,7 +21,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="/">
+            <form method="POST" action="/signin">
 
                 <div class="mb-3 text-start">
                     <label for="msisdn" class="form-label fw-semibold">{{__('msisdn')}}</label>
