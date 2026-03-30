@@ -7,6 +7,7 @@
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -110,6 +111,23 @@
             padding: 1rem 0;
             text-align: center;
             margin-top: auto;
+        }
+        .astro-color{
+            color: #b8943f;
+
+        }
+        .login-input::placeholder {
+            color: #b8943f;       /* бял текст */
+            opacity: 1;        /* да не е прозрачен */
+        }
+        .input-group-text i {
+            color: #b8943f !important;  /* белият цвят ще се приложи на иконата */
+        }
+        .input-group-text {
+            color: #b8943f !important;        /* бяла икона */
+            background-color: transparent;
+            border-color: rgba(201,162,77,0.3);
+
         }
     </style>
 
