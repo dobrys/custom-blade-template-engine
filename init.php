@@ -26,12 +26,16 @@ $config['theme'] = SessionManager::get('theme') ?? 'astro';*/
 //var_dump($config);
 // Language & locale
 $detector = new LanguageDetector($languages);
+
+$detector->persist(); // записва всичко в сесията
+
 $lang     = $detector->getLanguage();
 $locale   = $detector->getLocale();
+$dir    = $detector->getDirection();  // 'ltr'
+
 $dir      = $detector->getDirection();
 $fullUrl  = $detector->getFullUrl();
 
-SessionManager::set('locale', $locale);
 
 // App & Blade
 $app   = new \App\App($config);
@@ -50,3 +54,5 @@ $blade->assign('site_language',  $lang);
 $blade->assign('text_direction', $dir);
 $blade->assign('siteURL',        $fullUrl);
 $blade->assign('is_logged_in',   $isLoggedIn);
+
+$blade->assign('current_path', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

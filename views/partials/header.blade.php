@@ -66,10 +66,14 @@
                         <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                             @foreach($languages as $code => $info)
                                 @if($code !== 'default')
+                                    @php
+                                        $locale = is_array($info) ? $info['locale'] : $info;
+                                        $flag   = $info['flag'] ?? '🌐';
+                                    @endphp
                                     <li>
                                         <a class="dropdown-item {{ $site_language === $code ? 'active' : '' }}"
-                                           href="/?lang={{ $code }}">
-                                            {{ strtoupper($code) }}
+                                           href="/set-lang?locale={{ $locale }}&back={{ urlencode($current_path) }}">
+                                            {{ $flag }} {{ strtoupper(__($code)) }}
                                         </a>
                                     </li>
                                 @endif

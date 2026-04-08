@@ -62,3 +62,14 @@ function input(string $key, $default = null, string $source = 'request', bool $s
     }
 }
 
+if (!function_exists('env')) {
+    function env(string $key, mixed $default = null): mixed
+    {
+        if (isset($_ENV[$key])) return $_ENV[$key];
+        if (isset($_SERVER[$key])) return $_SERVER[$key];
+
+        $val = getenv($key);
+        return $val !== false ? $val : $default;
+    }
+}
+

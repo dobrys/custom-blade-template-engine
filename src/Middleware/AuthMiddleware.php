@@ -18,7 +18,7 @@ class AuthMiddleware
             ? [new DummyProvider()]
             : [new NthProvider()];
 
-        $auth = new AuthService(new AuthJwt(SK), $providers, '/login');
+        $auth = new AuthService(new AuthJwt(env('JWT_SECRET')), $providers, '/login');
         $auth->handle();
     }
 }

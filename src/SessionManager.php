@@ -67,10 +67,7 @@ class SessionManager
 
     public static function clear(string $key): void
     {
-        var_dump($key);
-        var_dump($_SESSION[$key]);
         unset($_SESSION[$key]);
-        var_dump($_SESSION);
     }
 
     public static function logout(): void

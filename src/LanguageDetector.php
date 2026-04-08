@@ -17,6 +17,33 @@ class LanguageDetector
         $this->host = strtolower($host ?? ($_SERVER['HTTP_HOST'] ?? ''));
         $this->protocol = $this->detectProtocol();
         $this->detect();
+        $this->applySession();
+    }
+    protected function applySession(): void
+    {
+        // Ако сесията има запазен locale — той има приоритет пред subdomain
+        $saved = $_SESSION['app_locale'] ?? null;
+        if ($saved && $this->isValidLocale($saved)) {
+            $this->setLocale($saved);
+        }
+    }
+
+    public function persist(): void
+    {
+        // Единична точка за запис в сесия
+        $_SESSION['app_locale']    = $this->locale;
+        $_SESSION['app_language']  = $this->language;
+        $_SESSION['app_direction'] = $this->direction;
+    }
+
+    public function isValidLocale(string $locale): bool
+    {
+        foreach ($this->languages as $code => $data) {
+            if ($code === 'default') continue;
+            $l = is_array($data) ? ($data['locale'] ?? null) : $data;
+            if ($l === $locale) return true;
+        }
+        return false;
     }
 
     /**
@@ -105,6 +132,23 @@ class LanguageDetector
     public function getLocale(): string
     {
         return $this->locale;
+    }
+    public function setLocale(string $locale): void
+    {
+        $this->locale = $locale;
+
+        // Обновяваме и language ако намерим съвпадение
+        foreach ($this->languages as $code => $data) {
+            if ($code === 'default') continue;
+
+            $langLocale = is_array($data) ? ($data['locale'] ?? null) : $data;
+
+            if ($langLocale === $locale) {
+                $this->language = $code;
+                $this->direction = is_array($data) ? ($data['dir'] ?? 'ltr') : 'ltr';
+                break;
+            }
+        }
     }
 
     public function getDirection(): string

@@ -7,6 +7,7 @@ $middlewares = [
 ];
 
 $routes = [
+    'set-lang' => ['file' => __DIR__ . '/routes/set-lang.php'],
     'assets' => ['file' => __DIR__ . '/routes/assets.php'],
     'signin' => ['file' => __DIR__ . '/routes/signin.php', 'middleware' => ['auth']],
     'home' => ['file' => __DIR__ . '/routes/home.php'],

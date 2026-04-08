@@ -11,7 +11,8 @@ class App {
     public string $locale;
 
     public function __construct(array $config) {
-        session_start();
+        $this->locale = $_SESSION['app_locale'] ?? 'en_US';
+/*        session_start();
         $this->locale = $_SESSION['locale'] ?? 'en';
         if (isset($_REQUEST['lang'])) {
             $this->locale = $_REQUEST['lang'];
@@ -21,14 +22,15 @@ class App {
             $referer = $_SERVER['HTTP_REFERER'] ?? '/';
             header('Location: ' . $referer);
             exit;
-        }
+        }*/
 
         $translatorClass = $config['translator'] === 'gettext'
             ? \App\Translations\GettextTranslator::class
             : \App\Translations\LaravelTranslator::class;
 
-        $this->translator = new $translatorClass($config['lang_dir'], $this->locale);
-        //die(var_dump($config['theme']));
+$this->translator = new $translatorClass($config['lang_dir'], $this->locale);
+#$this->translator = new $translatorClass($config['lang_dir'], 'bg_BG');
+        //die(var_dump($this->translator ));
         $theme = $config['theme'] ?? 'default';
 
         $this->blade = new \App\BladeEngine(
