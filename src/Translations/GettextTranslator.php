@@ -34,10 +34,12 @@ class GettextTranslator implements TranslatorInterface
     private function loadFile(string $moFile, string $poFile)
     {
         if (file_exists($moFile)) {
+            //error_log("GettextTranslator::using MO file: {$moFile}");
             return (new MoLoader())->loadFile($moFile);
         }
 
         if (file_exists($poFile)) {
+            //error_log("GettextTranslator::using PO file: {$poFile}");
             return (new PoLoader())->loadFile($poFile);
         }
 
