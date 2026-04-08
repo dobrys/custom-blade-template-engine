@@ -12,17 +12,6 @@ class App {
 
     public function __construct(array $config) {
         $this->locale = $_SESSION['app_locale'] ?? 'en_US';
-/*        session_start();
-        $this->locale = $_SESSION['locale'] ?? 'en';
-        if (isset($_REQUEST['lang'])) {
-            $this->locale = $_REQUEST['lang'];
-            $_SESSION['locale'] = $this->locale;
-
-            // Пренасочваме без ?lang= параметъра
-            $referer = $_SERVER['HTTP_REFERER'] ?? '/';
-            header('Location: ' . $referer);
-            exit;
-        }*/
 
         $translatorClass = $config['translator'] === 'gettext'
             ? \App\Translations\GettextTranslator::class

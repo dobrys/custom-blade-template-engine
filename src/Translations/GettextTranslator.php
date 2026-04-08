@@ -5,17 +5,20 @@ namespace App\Translations;
 use Gettext\Loader\MoLoader;
 use Gettext\Loader\PoLoader;
 use App\Contracts\TranslatorInterface;
-use Illuminate\Support\Facades\Log;
 class GettextTranslator implements TranslatorInterface
 {
     private $translations;
 
     public function __construct(string $langPath, string $locale)
     {
+
         $this->translations = $this->loadFromLocale($langPath, $locale);
 
         // fallback към en
         if (!$this->translations && $locale !== 'en') {
+            error_log('GettextTranslator::fallback към enfallback към "en" за '.$locale);
+            $_SESSION['app_locale']    = 'en_US';
+            $_SESSION['app_language']  = 'en';
             $this->translations = $this->loadFromLocale($langPath, 'en');
         }
     }
@@ -44,6 +47,7 @@ class GettextTranslator implements TranslatorInterface
     public function translate(string $key, array $replace = [], ?string $locale = null): string
     {
         if (!$this->translations) {
+            error_log("GettextTranslator::Translations not loaded. Returning key: {$key}");
             return $key;
         }
 
