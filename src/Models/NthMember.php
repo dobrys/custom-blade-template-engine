@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Config;
 use App\DatabaseFactory;
+use App\SessionManager;
 use Exception;
 use PDO;
 use PDOException;
@@ -22,9 +24,10 @@ class NthMember
     public function __construct()
     {
         try {
-            $this->_pdo = DatabaseFactory::getConnection(__DIR__ . '/../../config/db.php');
+            $this->_pdo = DatabaseFactory::getConnection(Config::configPath('db.php'));
         } catch (PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
+            error_log('NthMember: DB connection failed: ' . $e->getMessage());
+            die('Service temporarily unavailable.');
         }
     }
 
@@ -157,7 +160,7 @@ class NthMember
 
     public function redirectNotmember(string $page, string $message = 'Sorry ! Cannot find your phone number !'): void
     {
-        $_SESSION['redirect_reason'] = $message;
+        SessionManager::set('redirect_reason', $message);
         $this->redirect_to_page($page);
     }
 

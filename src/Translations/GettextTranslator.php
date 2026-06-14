@@ -5,6 +5,7 @@ namespace App\Translations;
 use Gettext\Loader\MoLoader;
 use Gettext\Loader\PoLoader;
 use App\Contracts\TranslatorInterface;
+use App\SessionManager;
 class GettextTranslator implements TranslatorInterface
 {
     private $translations;
@@ -17,8 +18,8 @@ class GettextTranslator implements TranslatorInterface
         // fallback към en
         if (!$this->translations && $locale !== 'en') {
             error_log('GettextTranslator::fallback към enfallback към "en" за '.$locale);
-            $_SESSION['app_locale']    = 'en_US';
-            $_SESSION['app_language']  = 'en';
+            SessionManager::set('app_locale', 'en_US');
+            SessionManager::set('app_language', 'en');
             $this->translations = $this->loadFromLocale($langPath, 'en');
         }
     }

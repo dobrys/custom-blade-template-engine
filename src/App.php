@@ -11,7 +11,7 @@ class App {
     public string $locale;
 
     public function __construct(array $config) {
-        $this->locale = $_SESSION['app_locale'] ?? 'en_US';
+        $this->locale = SessionManager::get('app_locale') ?? 'en_US';
 
         $translatorClass = $config['translator'] === 'gettext'
             ? \App\Translations\GettextTranslator::class

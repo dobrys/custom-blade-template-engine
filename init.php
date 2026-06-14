@@ -2,13 +2,13 @@
 
 use App\SessionManager;
 use App\LanguageDetector;
+use App\Config;
 use App\Nav\NavBuilder;
 
 require_once 'vendor/autoload.php';
 
 // Environment
 Dotenv\Dotenv::createImmutable(__DIR__)->load();
-define('SK', $_ENV['JWT_SECRET']);
 
 // Session
 SessionManager::start();
@@ -16,6 +16,7 @@ $isLoggedIn = SessionManager::isLoggedIn();
 
 // Config
 $config    = require __DIR__ . '/config.php';
+Config::load($config);
 $languages = require __DIR__ . '/languages.php';
 
 // Theme
@@ -43,7 +44,7 @@ $blade = $app->blade;
 $GLOBALS['blade'] = $blade;
 
 // Nav — ще се обнови от Router::refreshNavAndAuth() след middleware
-$nav = new NavBuilder(require __DIR__ . '/config/nav.php', $isLoggedIn, $fullUrl);
+$nav = new NavBuilder(Config::nav(), $isLoggedIn, $fullUrl);
 
 // Global blade variables
 // Забележка: is_logged_in и nav се обновяват от Router след middleware изпълнение

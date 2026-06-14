@@ -4,6 +4,7 @@ namespace App\Nav;
 
 use App\Nav\NavBuilder;
 use App\SessionManager;
+use App\Config;
 
 class Router
 {
@@ -19,7 +20,9 @@ class Router
         $this->middlewares   = $middlewares;
         $this->blade         = $blade;
         $this->specialRoutes = $this->loadSpecialRoutes();
-        $this->route         = $this->resolveRoute();
+
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $this->route = (new RouteResolver())->resolve($uri);
     }
 
     public function dispatch(): void
@@ -35,37 +38,9 @@ class Router
         $this->notFound();
     }
 
-    private function resolveRoute(): string
-    {
-        global $config;
-        $special = $config['special_uri'];
-        $next = $config['next_uri_var'];
-        $uri   = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        if (!in_array($uri, $special)) {
-            SessionManager::set($next, $uri);
-        }
-        $route = trim($uri, '/');
-
-        if ($route === '') {
-            return 'home';
-        }
-
-        if (str_starts_with($route, 'themes')) {
-            return 'assets';
-        }
-
-        if (!preg_match('/^[a-zA-Z0-9\/_\-]+(\.php)?$/', $route)) {
-            http_response_code(400);
-            echo "Bad Request";
-            exit;
-        }
-
-        return preg_replace('/\.php$/', '', $route);
-    }
-
     private function loadSpecialRoutes(): array
     {
-        $mapPath = __DIR__ . '/../routes/map.php';
+        $mapPath = Config::routesPath('map.php');
         return file_exists($mapPath) ? require $mapPath : [];
     }
 
@@ -81,7 +56,7 @@ class Router
                 $this->runMiddlewares($mws);
                 $this->refreshNavAndAuth();
 
-                $target = __DIR__ . '/../routes/' . ltrim($file, '/');
+                $target = Config::routesPath(ltrim($file, '/'));
                 if (!file_exists($target)) {
                     http_response_code(500);
                     echo "Routing error: File not found for $file";
@@ -110,8 +85,6 @@ class Router
             $this->notFound();
         }
 
-        $this->blade->assign('siteURL', $this->route . '/');
-        $this->blade->assign('user', $this->route . '/account/');
         require_once $info['file'];
         exit;
     }
@@ -131,10 +104,12 @@ class Router
 
         $this->blade->assign('is_logged_in', $isLoggedIn);
 
+        $currentUrl = $this->route === 'home' ? '/' : '/' . $this->route;
+
         $nav = new NavBuilder(
-            require __DIR__ . '/../../config/nav.php',
+            Config::nav(),
             $isLoggedIn,
-            $this->route
+            $currentUrl
         );
 
         $this->blade->assign('nav',        $nav->build());
@@ -145,7 +120,8 @@ class Router
     {
         http_response_code(404);
         $this->blade->assign('missingRoute', $this->route);
-        echo $this->blade->render('errors.404', ['title' => __('Page Not Found')]);
+        $this->blade->assign('title', __('Page Not Found'));
+        echo $this->blade->render('errors.404');
         exit;
     }
 }

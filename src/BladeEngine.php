@@ -48,7 +48,7 @@ class BladeEngine
         $resolver->register('blade', fn() => new CompilerEngine($bladeCompiler));
 
         $paths = [
-            __DIR__ . "/../themes/{$theme}",
+            Config::themesPath($theme),
             $viewsPath
         ];
 
@@ -80,6 +80,12 @@ class BladeEngine
     }
     public function renderString(string $string, array $data = []): string
     {
+        // $string може да идва от CMS/DB съдържание. Премахваме @php/@endphp
+        // блокове и raw PHP tags, за да не позволим изпълнение на произволен
+        // PHP код през eval() по-долу.
+        $string = preg_replace('/@php\b.*?@endphp/s', '', $string);
+        $string = str_replace(['<?php', '<?=', '<?'], '', $string);
+
         $bladeCompiler = new \Illuminate\View\Compilers\BladeCompiler(
             new \Illuminate\Filesystem\Filesystem(),
             sys_get_temp_dir()

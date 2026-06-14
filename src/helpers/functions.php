@@ -85,10 +85,10 @@ if (!function_exists('site_var')) {
     {
         static $vars = null;
         if ($vars === null) {
-            $vars = require __DIR__ . '/../../config/site_vars.php';
+            $vars = require \App\Config::configPath('site_vars.php');
         }
 
-        $lang = $_SESSION['app_language'] ?? 'default';
+        $lang = \App\SessionManager::get('app_language') ?? 'default';
 
         return (string)($vars[$lang][$key] ?? $vars['default'][$key] ?? '');
     }

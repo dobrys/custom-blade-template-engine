@@ -40,14 +40,16 @@ class AuthService
         }
 
         // Логин чрез UUID
-        if (!empty($_REQUEST['public_uuid'])) {
-            $this->loginWithUuid($_REQUEST['public_uuid']);
+        $uuid = input('public_uuid');
+        if (!empty($uuid) && preg_match('/^[A-Za-z0-9_-]{1,64}$/', $uuid)) {
+            $this->loginWithUuid($uuid);
             return;
         }
 
         // Логин чрез MSISDN
-        if (!empty($_REQUEST['msisdn'])) {
-            $this->loginWithMsisdn($_REQUEST['msisdn']);
+        $msisdn = input('msisdn');
+        if (!empty($msisdn) && preg_match('/^\+?[0-9]{6,15}$/', $msisdn)) {
+            $this->loginWithMsisdn($msisdn);
             return;
         }
 

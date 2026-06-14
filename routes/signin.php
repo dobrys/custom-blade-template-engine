@@ -1,15 +1,14 @@
 <?php
 
 use App\SessionManager;
+use App\Config;
 
 // ако НЕ е логнат → обратно към login
 if (!SessionManager::isLoggedIn()) {
     header('Location: /login');
     exit;
 }
-global $config;
-$special = $config['special_uri'];
-$next = $config['next_uri_var'];
+$next = Config::get('next_uri_var');
 
 // взимаме запазения URL
 $redirect = SessionManager::get($next) ?? '/';

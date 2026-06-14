@@ -22,7 +22,7 @@ class LanguageDetector
     protected function applySession(): void
     {
         // Ако сесията има запазен locale — той има приоритет пред subdomain
-        $saved = $_SESSION['app_locale'] ?? null;
+        $saved = SessionManager::get('app_locale');
         if ($saved && $this->isValidLocale($saved)) {
             $this->setLocale($saved);
         }
@@ -31,9 +31,9 @@ class LanguageDetector
     public function persist(): void
     {
         // Единична точка за запис в сесия
-        $_SESSION['app_locale']    = $this->locale;
-        $_SESSION['app_language']  = $this->language;
-        $_SESSION['app_direction'] = $this->direction;
+        SessionManager::set('app_locale', $this->locale);
+        SessionManager::set('app_language', $this->language);
+        SessionManager::set('app_direction', $this->direction);
     }
 
     public function isValidLocale(string $locale): bool

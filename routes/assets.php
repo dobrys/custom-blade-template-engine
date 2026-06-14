@@ -1,8 +1,9 @@
 <?php
-$cfg   = require __DIR__ . '/../config.php';
-$theme = $cfg['theme'] ?? 'default';
+use App\Config;
 
-$baseDir = realpath(__DIR__ . '/../themes/' . $theme);
+$theme = Config::get('theme', 'default');
+
+$baseDir = realpath(Config::themesPath($theme));
 
 $uri     = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
