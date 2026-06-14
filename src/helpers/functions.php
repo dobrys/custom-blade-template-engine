@@ -73,3 +73,24 @@ if (!function_exists('env')) {
     }
 }
 
+if (!function_exists('site_var')) {
+    /**
+     * Locale-specific конфигурационна стойност от config/site_vars.php
+     * (телефон/имейл/цена/правен текст и др. по език).
+     *
+     * Ключ за избор на език е $_SESSION['app_language'] (зададен от
+     * LanguageDetector::persist()), с fallback към 'default'.
+     */
+    function site_var(string $key): string
+    {
+        static $vars = null;
+        if ($vars === null) {
+            $vars = require __DIR__ . '/../../config/site_vars.php';
+        }
+
+        $lang = $_SESSION['app_language'] ?? 'default';
+
+        return (string)($vars[$lang][$key] ?? $vars['default'][$key] ?? '');
+    }
+}
+

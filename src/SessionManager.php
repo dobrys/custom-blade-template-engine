@@ -16,7 +16,7 @@ class SessionManager
         if (self::isStarted()) {
             $_SESSION = [];
 
-            // ????????? ?? ???????? cookie, ??? ??????????
+            // Изтриване на сесийния cookie, ако съществува
             if (ini_get("session.use_cookies")) {
                 $params = session_get_cookie_params();
                 setcookie(

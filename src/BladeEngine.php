@@ -38,6 +38,9 @@ class BladeEngine
         $bladeCompiler->directive('themeAsset', function ($expression) {
             return "<?php echo theme_asset($expression); ?>";
         });
+        $bladeCompiler->directive('sitevar', function ($expression) {
+            return "<?php echo site_var($expression); ?>";
+        });
 
 
 
