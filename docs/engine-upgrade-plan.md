@@ -32,6 +32,11 @@
   текстове (телефон/имейл/...), ключувани по `$_SESSION['app_language']` с
   `default` fallback. Schema в `config/site_vars.php` (празна, без реални
   данни).
+- **Front controller (4.3, частично)** — решено: `public/` е каноничният
+  front controller. Root `.htaccess` премахнат (`git rm .htaccess`). Остава
+  решение за root `index.php` (вече без `.htaccess` rewrite за pretty URLs —
+  потенциално мъртъв за всичко освен `/`) и за `routes/assets.php` (може да е
+  dead code под Apache static serving).
 
 Останалото по-долу е **TODO**, чака одобрение преди промени по кода.
 
@@ -44,13 +49,13 @@
 | 1.2 | `die("Connection failed: " . $e->getMessage())` изтича DSN/host/credentials в response | `src/Models/NthMember.php:24-28` |
 | 3.2 | `AuthService` чете суров `$_REQUEST['public_uuid']`/`['msisdn']` без `input()` sanitizer и без валидация на формат | `src/Auth/AuthService.php:43,49` |
 | 4.1 | `BladeEngine::renderString()` използва `eval()` — потенциален RCE ако CMS/DB съдържание мине през него | `src/BladeEngine.php:78-106` |
-| 4.3 | Два паралелни front controller-а (`/.htaccess` vs `public/.htaccess`) с различни rewrite правила; `routes/assets.php` може да е dead code under Apache | `.htaccess`, `public/.htaccess`, `index.php`, `public/index.php` |
+| 4.3 | Два паралелни front controller-а (`/.htaccess` vs `public/.htaccess`) с различни rewrite правила; `routes/assets.php` може да е dead code under Apache | `.htaccess`, `public/.htaccess`, `index.php`, `public/index.php` | ⏳ ЧАСТИЧНО — `public/` е каноничният, root `.htaccess` премахнат (виж Статус) |
 
 **Препоръки:**
 1. `1.2` — замени `die()` с правилен error handling (логване, generic user-facing съобщение, без DSN/credentials в response).
 2. `3.2` — мини auth входа (`public_uuid`/`msisdn`) през `input()` + базова формат-валидация.
 3. `4.1` — документирай RCE риска на `renderString()`; ако не се ползва никъде активно — обмисли ограничаване/премахване на `eval()` пътя.
-4. `4.3` — реши кой front controller е "истинският" (`/.htaccess`+root `index.php` vs `public/`), премахни/коригирай другия и `routes/assets.php` ако е dead code.
+4. `4.3` — остава: реши съдбата на root `index.php` (вече недостижим за pretty URLs без `.htaccess`) и на `routes/assets.php` (вероятен dead code под `public/` + Apache static serving).
 
 ---
 
