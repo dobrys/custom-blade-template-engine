@@ -22,7 +22,7 @@ class NthMember
     public function __construct()
     {
         try {
-            $this->_pdo = DatabaseFactory::getConnection(__DIR__ . '/../assets/config/face.php');
+            $this->_pdo = DatabaseFactory::getConnection(__DIR__ . '/../../config/db.php');
         } catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());
         }

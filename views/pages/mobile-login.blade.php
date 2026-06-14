@@ -11,13 +11,9 @@
             </div>
 
             {{-- Блок за грешки --}}
-            @if(!empty($errors))
+            @if(!empty($redirect_reason))
                 <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach($errors as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    {{ __($redirect_reason) }}
                 </div>
             @endif
 
