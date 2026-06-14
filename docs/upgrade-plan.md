@@ -10,6 +10,13 @@
   env-driven (`DB_HOST`/`DB_NAME`/`DB_USER`/`DB_PASSWORD` от `.env`,
   `charset` hardcoded `utf8mb4`). Не се създаваше нов `src/assets/config/face.php`
   както предлагаше плана по-долу — `config/db.php` вече покриваше нуждата.
+- **1.4 (частично)** / **3 item 5** — `src/Auth/LoginInterface.php`,
+  `src/Auth/DefaultLoginHandler.php` и `'handler'` ключът в `config.php` бяха
+  orphan scaffold без consumer (реалният login flow минава изцяло през
+  `AuthMiddleware` → `AuthService`, MSISDN/UUID + JWT). Премахнати с
+  `git rm`. Остава решение само за username/password формата в
+  `views/pages/login.blade.php` (виж 1.3/3.6) — отделен въпрос от premахнатата
+  абстракция.
 - **3.13** — пресъздадена е `svelte/` source директорията
   (`svelte/components.js` с `import.meta.glob(..., { eager: true })`,
   `svelte/svelte-load-all.js`, `svelte/svelte-all.js`, плюс примерен
@@ -129,7 +136,7 @@
 | 2 | `LanguageDetector::persist()`/session-override логика, `GettextTranslator` fallback-to-`en` | По-стара версия в facedesign предхожда тези подобрения | Документирай (engine е по-напред; запази) |
 | 3 | `BladeEngine::renderString()` (eval-базиран dynamic Blade) | facedesign никога не е имал нужда от CMS dynamic-content рендиране | Документирай — но виж 4.1 (P1): ако остане, трябва ограничен достъп/санитизация преди да бъде свързан с реално DB съдържание |
 | 4 | `AuthService::restoreSessionFromJwt()` / JWT-restore-from-session branch | facedesign-ската `AuthService` е по-стара версия без този branch (и има латентен bug: вика стар `getMemberData()` вместо `getMemberDataByUuid()` — facedesign-специфичен проблем, извън scope) | Документирай (engine е по-напред; запази) |
-| 5 | `src/Auth/LoginInterface.php` + `src/Auth/DefaultLoginHandler.php` | Никога не са инстанцирани в engine (1.4), и нямат аналог в facedesign — изцяло недовършена абстракция без consumer | Зависи от решението по 1.4: ако се изгражда реален username/password login, тази абстракция е стартова точка (довърши); ако не — премахни заедно с `'handler'` ключа в `config.php` |
+| 5 | `src/Auth/LoginInterface.php` + `src/Auth/DefaultLoginHandler.php` | Никога не са инстанцирани в engine (1.4), и нямат аналог в facedesign — изцяло недовършена абстракция без consumer | ✅ DONE — премахнати заедно с `'handler'` ключа в `config.php` (виж Секция 0) |
 | 6 | `src/translator.php` (дублиран `__()`) | Дубликат на `src/helpers/translator.php`, потвърдено мъртъв и в двата проекта | Премахни (покрива P4/2.8) |
 
 ---
