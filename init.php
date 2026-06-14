@@ -56,3 +56,4 @@ $blade->assign('siteURL',        $fullUrl);
 $blade->assign('is_logged_in',   $isLoggedIn);
 
 $blade->assign('current_path', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$blade->assign('app_env', $config['env']);

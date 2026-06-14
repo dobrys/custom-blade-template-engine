@@ -46,6 +46,12 @@
 @include('partials.footer')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+@if(($app_env ?? 'production') === 'development')
+    <script type="module" src="http://localhost:5173/@@vite/client"></script>
+    <script type="module" src="http://localhost:5173/svelte/svelte-all.js"></script>
+@else
+    <script type="module" src="@themeAsset('js/all.js')"></script>
+@endif
 @stack('scripts')
 </body>
 </html>
