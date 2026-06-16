@@ -77,6 +77,14 @@
   на `src/helpers/translator.php`), `__globals.php` (2.9, orphan файл с
   конфликтен `const SK`), `views/pages/home.blade.php` (3.7, недостижим заради
   `FileViewFinder` приоритета на `themes/default/pages/home.blade.php`).
+- **Front controller (4.3, завършено)** — root `index.php` премахнат,
+  `public/` е единственият front controller. `routes/assets.php` **не** е
+  dead code — `public/` е webroot и съдържа само `index.php`/`favicon.ico`;
+  `themes/` живее извън webroot, така че `routes/assets.php` е единственият
+  начин theme asset-ите (`/themes/{theme}/assets/...`) да се сервират.
+  Оригиналната хипотеза в 4.3 ("може да е dead code под Apache static
+  serving") беше грешна за тази директорийна структура — `routes/assets.php`
+  остава.
 
 Останалото по-долу е **TODO**, чака одобрение преди промени по кода.
 
@@ -89,13 +97,13 @@
 | 1.2 | `die("Connection failed: " . $e->getMessage())` изтича DSN/host/credentials в response | `src/Models/NthMember.php:24-28` | ✅ ГОТОВО |
 | 3.2 | `AuthService` чете суров `$_REQUEST['public_uuid']`/`['msisdn']` без `input()` sanitizer и без валидация на формат | `src/Auth/AuthService.php:43,49` | ✅ ГОТОВО |
 | 4.1 | `BladeEngine::renderString()` използва `eval()` — потенциален RCE ако CMS/DB съдържание мине през него | `src/BladeEngine.php:78-106` | ✅ ГОТОВО |
-| 4.3 | Два паралелни front controller-а (`/.htaccess` vs `public/.htaccess`) с различни rewrite правила; `routes/assets.php` може да е dead code under Apache | `.htaccess`, `public/.htaccess`, `index.php`, `public/index.php` | ⏳ ЧАСТИЧНО — `public/` е каноничният, root `.htaccess` премахнат (виж Статус) |
+| 4.3 | Два паралелни front controller-а (`/.htaccess` vs `public/.htaccess`) с различни rewrite правила; `routes/assets.php` може да е dead code under Apache | `.htaccess`, `public/.htaccess`, `index.php`, `public/index.php` | ✅ ГОТОВО — root `index.php` премахнат, `public/` единствен front controller; `routes/assets.php` потвърден като НЕОБХОДИМ (виж Статус) |
 
 **Препоръки:**
 1. ~~`1.2` — замени `die()` с правилен error handling (логване, generic user-facing съобщение, без DSN/credentials в response).~~ Готово.
 2. ~~`3.2` — мини auth входа (`public_uuid`/`msisdn`) през `input()` + базова формат-валидация.~~ Готово.
 3. ~~`4.1` — документирай RCE риска на `renderString()`; ако не се ползва никъде активно — обмисли ограничаване/премахване на `eval()` пътя.~~ Готово — входният string се чисти от `@php`/raw PHP tags преди компилиране.
-4. `4.3` — остава: реши съдбата на root `index.php` (вече недостижим за pretty URLs без `.htaccess`) и на `routes/assets.php` (вероятен dead code под `public/` + Apache static serving).
+4. ~~`4.3` — реши съдбата на root `index.php` и `routes/assets.php`.~~ Готово — root `index.php` премахнат; `routes/assets.php` остава (единствен delivery механизъм за `themes/` извън webroot).
 
 ---
 
@@ -145,7 +153,7 @@
 
 ## Ред на изпълнение
 
-1. **P1 — Сигурност** (1.2 ✅, 3.2 ✅, 4.1 ✅, 4.3 ⏳ частично)
+1. **P1 — Сигурност** (1.2 ✅, 3.2 ✅, 4.1 ✅, 4.3 ✅) — всичко завършено
 2. **P2 — Тихи бъгове** (1.5 ✅, 3.1 ✅, 3.9 ✅, 3.11 ✅; остават 2.6, 3.4, 3.5, 3.10)
 3. **P3 — Архитектурно документиране** (2.2 ✅, 2.5 ✅, 2.7 ✅, 3.8 ✅, 4.4 ✅; остават 2.1 частично, 2.4, 3.3, 4.2) — без структурни промени без отделно одобрение
 4. **P4 — Почистване** (2.8 ✅, 2.9 ✅, 3.7 ✅; остава 2.3 — документирай/реши съдбата на `NthMember` page getters)

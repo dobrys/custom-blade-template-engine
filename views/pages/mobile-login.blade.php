@@ -1,8 +1,8 @@
-@extends('layout.default')
+@extends('layout.auth')
 
 @section('title', $title)
 @section('content')
-    <div class="login_div d-flex flex-column justify-content-center align-items-center bg-dark" style="min-height: 100%;">
+    <div class="login_div d-flex flex-column justify-content-center align-items-center bg-dark" style="min-height: 100%;min-width: 100%;">
         <div class="card p-4 p-md-5 shadow-lg border border-secondary rounded-4" style="max-width: 420px; width: 100%; backdrop-filter: blur(8px); color: white; background-color: rgba(0,0,0,0.65);">
 
             <div class="text-center mb-4">

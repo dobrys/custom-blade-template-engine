@@ -1,3 +1,10 @@
+{{--
+    Каноничен базов layout на engine-а.
+    Винаги присъства във views/ и служи за основа, преди дадена тема да
+    дефинира собствен themes/{theme}/layout/default.blade.php (override).
+    Темите override-ват само това, което се различава — резолюцията е
+    theme-first, views-fallback (виж src/BladeEngine.php).
+--}}
 <!DOCTYPE html>
 <html lang="{{$site_language}}" dir="{{$text_direction}}">
 
@@ -32,7 +39,6 @@
     @stack('styles')
 </head>
 <body>
-{{----}}@dump($site_language,$text_direction)
 @include('partials.header')
 <main>
 @yield('content')

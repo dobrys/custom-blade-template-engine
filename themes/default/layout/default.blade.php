@@ -37,9 +37,7 @@
     @stack('styles')
 </head>
 <body>
-
-{{--@dump($site_language,$text_direction)--}}
-
+@include('partials.header')
 <main>
     @yield('content')
 </main>

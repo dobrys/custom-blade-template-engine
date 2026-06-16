@@ -68,8 +68,8 @@ optionally call `__()` for translated strings, then `$blade->assign(...)` /
   Laravel's `FileViewFinder`: `themes/{theme}/` and `views/`. A view name
   like `pages.home` resolves to `themes/{theme}/pages/home.blade.php` first,
   falling back to `views/pages/home.blade.php`. Layouts/partials/errors
-  follow the same dual-location pattern (`layout.default`, `partials.header`,
-  `errors.404`).
+  follow the same dual-location pattern (`layout.default`, `layout.auth`,
+  `partials.header`, `errors.404`).
 - Custom Blade directives: `@dump`, `@dd` (Symfony VarDumper), `@asset(...)`
   and `@themeAsset(...)` (wrap the `asset()` / `theme_asset()` helpers).
 - `BladeEngine::renderString()` compiles/evals an ad-hoc Blade string
@@ -79,6 +79,29 @@ optionally call `__()` for translated strings, then `$blade->assign(...)` /
   resolves the path under the theme dir with `realpath()` and rejects
   anything escaping the theme directory (path traversal guard) before
   streaming it with a manually maintained MIME map.
+
+### Convention: `views/` (base) vs `themes/{theme}/` (override)
+
+This repo is meant to be used as a **base engine** for other sites, so the
+split is intentional and load-bearing:
+
+- **`views/` = canonical base, always present.** It must always ship a
+  working set of base layouts (`layout.default` with header/footer/nav,
+  `layout.auth` for header-less auth/login screens), generic partials
+  (`partials.header`, `partials.footer`) and generic pages. A fresh site
+  with **no theme overrides at all** must still render correctly from
+  `views/` alone. Never delete the base copies.
+- **`themes/{theme}/` = per-theme overrides + assets.** A theme overrides a
+  view name *only when it needs to differ* from the base (e.g.
+  `themes/default/layout/default.blade.php` adds the Vite/asset wiring and
+  drops the nav header). Anything the theme does not override falls back to
+  `views/` automatically.
+- Resolution is **theme-first, views-fallback** (the `$paths` order in
+  `src/BladeEngine.php`). Because override is per *view name* and
+  all-or-nothing, prefer overriding **small partials** over copying a whole
+  layout, so themes don't silently diverge from the base. Keeping a base copy
+  and a theme copy of the *same* file is allowed (it's the whole point), but
+  treat the `views/` version as the canonical reference the theme builds on.
 
 ## Internationalization
 
