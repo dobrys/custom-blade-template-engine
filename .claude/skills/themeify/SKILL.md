@@ -130,7 +130,9 @@ Blade директиви: `@asset(...)`, `@themeAsset(...)`, `@sitevar(...)`, `@
 
 ```php
 <?php
-$root = 'E:/laragon/www/engine';
+// project root = текущата работна папка (сайтът, в който пускаш skill-а).
+// Така harness-ът е преносим — работи и в engine-а, и във всеки производен сайт.
+$root = getcwd();
 require $root . '/vendor/autoload.php';
 require_once $root . '/src/helpers/functions.php';   // asset/theme_asset/site_var
 require_once $root . '/src/helpers/translator.php';  // __() (нужен след i18n стъпката)

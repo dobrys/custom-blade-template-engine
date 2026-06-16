@@ -7,9 +7,10 @@
  * `composer install`).
  *
  * Какво прави:
- *   - Копира engine скелета в целева директория.
+ *   - Копира engine скелета в целева директория (вкл. .claude/skills/, за да
+ *     може новият сайт сам да генерира тема с /themegen, /themeify).
  *   - Изключва тайните и локалното (.env, vendor/, node_modules/, .git/,
- *     .idea/, .claude/, компилиран cache/*.php, dev-документи).
+ *     .idea/, .claude/settings.local.json, компилиран cache/*.php, dev-документи).
  *   - Генерира свеж .env от .env.example с нов случаен JWT_SECRET.
  *   - Настройва config.php (theme, env) по подадените опции.
  *   - Добавя .env в .gitignore на новия сайт (за да не изтекат тайни).
@@ -41,10 +42,12 @@ if (PHP_SAPI !== 'cli') {
 // ---------------------------------------------------------------------------
 
 // Папки (по име на най-горния сегмент), които никога не се копират.
+// ЗАБЕЛЕЖКА: .claude/ НЕ е тук — копираме .claude/skills/, за да има новият
+// сайт генериращите skill-ове (/themegen, /themeify). Само локалните настройки
+// се изключват (виж EXCLUDE_FILES).
 const EXCLUDE_DIRS = [
     '.git',
     '.idea',
-    '.claude',
     'vendor',        // възстановява се с `composer install`
     'node_modules',  // възстановява се с `npm install`
     'docs',          // dev-документи на самия engine
@@ -57,6 +60,7 @@ const EXCLUDE_DIRS = [
 const EXCLUDE_FILES = [
     '.env',                          // тайни → генерира се наново
     'claude-code-instructions.md',   // dev-бележки на engine-а
+    '.claude/settings.local.json',   // локални permission-и — не пътуват
 ];
 
 // ---------------------------------------------------------------------------

@@ -27,6 +27,15 @@
 Двата `utils/` скрипта са чист PHP (без `vendor/` зависимости) — работят и преди
 `composer install`. `/themeify` и `/themegen` се изпълняват от Claude Code.
 
+> **⚠️ Къде се генерира темата — важно.**
+> Engine-ът трябва да остане **чиста, генерична база**. Генерирането на тема
+> редактира `config.php` (активна тема), `config/nav.php`, `router.php`, добавя
+> рутове/преводи — това са файлове на **конкретния сайт**, не на базата. Затова
+> **първо` new-site.php`, после генерираш ВЪТРЕ в новия сайт.** За да е възможно,
+> `new-site.php` копира `.claude/skills/` в новия сайт, а harness-ите на skill-овете
+> ползват текущата папка като root (преносими). НЕ генерирай тема директно в
+> engine-а — ще замърсиш базата.
+
 ---
 
 ## 1. `utils/new-site.php` — нов сайт от engine-а
@@ -61,9 +70,12 @@ php utils/new-site.php ../my-new-site --name="Моят сайт" --env=productio
 
 - **Копира** engine скелета (`src/`, `routes/`, `views/`, `themes/`, `config/`,
   `public/`, `lang/`, `svelte/`, `composer.json`/`composer.lock`,
-  `package.json`/`package-lock.json`, `config.php`, `router.php`, `init.php`, ...).
+  `package.json`/`package-lock.json`, `config.php`, `router.php`, `init.php`, ...)
+  **+ `.claude/skills/`** — за да може новият сайт сам да генерира тема с
+  `/themegen` / `/themeify`.
 - **Изключва**: `.env` (тайни), `vendor/`, `node_modules/`, `.git/`, `.idea/`,
-  `.claude/`, `docs/`, `claude-code-instructions.md`, компилираните `cache/*.php`
+  `.claude/settings.local.json` (локални permission-и), `docs/`,
+  `claude-code-instructions.md`, компилираните `cache/*.php`
   (`cache/.gitignore` се запазва).
 - **Генерира свеж `.env`** от `.env.example` с **нов случаен `JWT_SECRET`**
   (`base64(random_bytes(32))`) и `APP_ENV`/`APP_DEBUG` според `--env`.
@@ -248,28 +260,28 @@ hero със CTA „Гледай сега"; страници: home, катего�
 ## Пълен пример (end-to-end)
 
 ```bash
-# 1. Нов сайт от engine-а
+# 1. Нов сайт от engine-а (носи и .claude/skills/)
 php utils/new-site.php ../client-site --name="Клиентски сайт" --env=production
 cd ../client-site
 composer install && npm install
 
-# 2. Импорт на сваляна тема (механичен слой)
-php utils/theme-import.php ../downloads/fancytheme fancytheme
+# 2. Отвори Claude Code В НОВИЯ САЙТ — генерирането става ТУК, не в engine-а
+claude
 
-# 3. Активирай темата
-#    config.php → 'theme' => 'fancytheme'
-#    (или още на стъпка 1: new-site.php --theme=fancytheme)
+# 3a. Път А: импорт на сваляна тема (извън Claude) + семантичен finish
+#     php utils/theme-import.php ../downloads/fancytheme fancytheme
+#     после в Claude:  /themeify fancytheme
+#
+# 3b. Път Б: тема от нулата по бриф
+#     в Claude:  /themegen "обучителни видеа за деца ..."
 
-# 4. Семантичен finish (в Claude Code сесия)
-#    /themeify fancytheme
-
-# 5. Преглед на themes/fancytheme/REVIEW.md за останали ръчни TODO
-npm run build
+# 4. Активирай темата:  config.php → 'theme' => '...'
+#    (или още на стъпка 1: new-site.php --theme=...)
+# 5. npm run build
 ```
 
-**Алтернатива (път Б — тема от нулата вместо импорт):** на стъпки 2-4 вместо
-`theme-import.php` + `/themeify` използвай един `/themegen` с бриф (виж секция 4),
-после `config.php → 'theme' => '...'` и `npm run build`.
+> Всички редакции на стъпка 3 (config/nav/router/преводи/тема) се случват в
+> `../client-site` — engine-ът остава недокоснат.
 
 ---
 
