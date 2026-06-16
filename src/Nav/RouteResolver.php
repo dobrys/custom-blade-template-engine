@@ -40,7 +40,11 @@ class RouteResolver
 
         $special = Config::get('special_uri');
         if (!in_array($uri, $special, true)) {
-            SessionManager::set(Config::get('next_uri_var'), $uri);
+            // Запазваме ПЪЛНИЯ URI (path + query), а не само path-а — иначе
+            // параметризирани страници (напр. /watch?v=slug) губят параметъра
+            // при пост-login redirect и стигат до „not found".
+            $full = $_SERVER['REQUEST_URI'] ?? $uri;
+            SessionManager::set(Config::get('next_uri_var'), $full);
         }
     }
 }

@@ -16,8 +16,8 @@ $redirect = SessionManager::get($next) ?? '/';
 // чистим го
 SessionManager::clear($next);
 
-// защита
-if (!str_starts_with($redirect, '/')) {
+// защита: само относителни пътища (не „//host" / не абсолютни URL → open redirect)
+if (!str_starts_with($redirect, '/') || str_starts_with($redirect, '//')) {
     $redirect = '/';
 }
 
